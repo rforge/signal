@@ -39,8 +39,8 @@ Octave Forge \url{http://octave.sf.net}
 \seealso{ \code{\link{filter}}, \code{\link{Ma}},
 \code{\link{fftfilt}}, \code{\link{fir2}} }
 \examples{
-freqz(fir1(40,0.3))
-freqz(fir1(10,c(0.3, .5), "stop"))
-freqz(fir1(10,c(0.3, .5), "pass"))
+freqz(fir1(40, 0.3))
+freqz(fir1(10, c(0.3, 0.5), "stop"))
+freqz(fir1(10, c(0.3, 0.5), "pass"))
 }
 \keyword{ math }

@@ -73,8 +73,8 @@ needed there.
 \seealso{ \code{\link{filter}}, \code{\link{Arma}}, \code{\link{freqs}}
 }
 \examples{
-b = c(1,0,-1)
-a = c(1,0,0,0,0.25)
+b <- c(1, 0, -1)
+a <- c(1, 0, 0, 0, 0.25)
 freqz(b, a)
 }
 \keyword{ math }

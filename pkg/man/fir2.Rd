@@ -34,10 +34,10 @@ Octave Forge \url{http://octave.sf.net}
 \seealso{ \code{\link{filter}}, \code{\link{Ma}},
 \code{\link{fftfilt}}, \code{\link{fir1}} }
 \examples{
-f = c(0, 0.3, 0.3, 0.6, 0.6, 1)
-m = c(0, 0, 1, 1/2, 0, 0)
-fh = freqz(fir2(100, f, m))
-op = par(mfrow=c(1,2))
+f <- c(0, 0.3, 0.3, 0.6, 0.6, 1)
+m <- c(0, 0, 1, 1/2, 0, 0)
+fh <- freqz(fir2(100, f, m))
+op <- par(mfrow = c(1, 2))
 plot(f, m, type = "b", ylab = "magnitude", xlab = "Frequency")
 lines(fh$f / pi, abs(fh$h), col = "blue")
 # plot in dB:

@@ -40,7 +40,7 @@ Octave Forge \url{http://octave.sf.net}
 \seealso{ \code{\link{filter}}, \code{\link{Ma}},
 \code{\link{fftfilt}}, \code{\link{fir1}} }
 \examples{
-f1 = remez(15, c(0,0.3,0.4,1), c(1,1,0,0))
+f1 <- remez(15, c(0, 0.3, 0.4, 1), c(1, 1, 0, 0))
 freqz(f1)
 }
 \keyword{ math }

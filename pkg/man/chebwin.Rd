@@ -44,7 +44,7 @@ Proc. IEEE, 34, pp. 335-348.
 
 Octave Forge \url{http://octave.sf.net}
 }
- \author{ Original Octave version by André Carezia,
+\author{ Original Octave version by André Carezia,
    \email{acarezia@uol.com.br}.
    Conversion to R by Tom Short. }
 \seealso{ \code{\link{kaiser}} }

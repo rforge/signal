@@ -78,8 +78,8 @@ inside loops and function calls, so explicit calls to \code{print} or
 }
 \examples{
 # Two Zeros and Two Poles
-b = poly(c(1/0.9*exp(1i*pi*0.2), 0.9*exp(1i*pi*0.6)))
-a = poly(c(0.9*exp(-1i*pi*0.6), 1/0.9*exp(-1i*pi*0.2)))
+b <- poly(c(1/0.9*exp(1i*pi*0.2), 0.9*exp(1i*pi*0.6)))
+a <- poly(c(0.9*exp(-1i*pi*0.6), 1/0.9*exp(-1i*pi*0.2)))
 grpdelay(b, a, 512, 'whole', 1)
 }
 \keyword{ math }

@@ -7,7 +7,6 @@
 \usage{
 Ma(b)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{b}{ moving average (MA) polynomial coefficients }
 }
