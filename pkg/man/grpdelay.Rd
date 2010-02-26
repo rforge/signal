@@ -34,7 +34,7 @@
   \item{n}{ number of points at which to evaluate the frequency response. }
   \item{whole}{ \code{'half'} or \code{FALSE} (the default) to evaluate
     around the upper half of the
-    unit circle or \code{whole'} to evaluate around the entire unit circle. }
+    unit circle or \code{'whole'} to evaluate around the entire unit circle. }
   \item{Fs}{ sampling frequency in Hz. If not specified, the frequencies
     are in radians. }
   \item{x}{ object to be plotted. }

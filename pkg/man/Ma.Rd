@@ -10,8 +10,6 @@ Ma(b)
 \arguments{
   \item{b}{ moving average (MA) polynomial coefficients }
 }
-\details{
-}
 \value{
   A list with the MA polynomial coefficients of class \code{Ma}.
 }

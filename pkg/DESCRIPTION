@@ -1,15 +1,14 @@
 Package: signal
-Type: Package
 Title: Signal processing
 Version: 0.6-1
 Date: 2010-02-26
 Author: Tom Short <tshort@eprisolutions.com>
 Maintainer: Uwe Ligges <ligges@statistik.tu-dortmund.de>
-Depends: stats, graphics, grDevices, MASS
+Depends: R (>= 2.10.0), stats, graphics, grDevices, MASS
 Description: A set of generally Matlab/Octave-compatible signal processing
   functions. Includes filter generation utilities, filtering functions,
   resampling routines, and visualization of filter models. It also
-  includes interpolation functions and some Matlab compatability
+  includes interpolation functions and some Matlab comparability
   functions.
 License: GPL-2
 

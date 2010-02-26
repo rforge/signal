@@ -2,6 +2,7 @@
 \alias{signal-package}
 \alias{signal}
 \docType{package}
+\encoding{latin1}
 \title{
 Signal processing 
 }

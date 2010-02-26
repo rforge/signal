@@ -1,5 +1,6 @@
 \name{chebwin}
 \alias{chebwin}
+\encoding{latin1}
 \title{ Dolph-Chebyshev window coefficients }
 \description{
  Returns the filter coefficients of the n-point Dolph-Chebyshev window

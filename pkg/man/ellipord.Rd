@@ -20,8 +20,6 @@ ellipord(Wp, Ws, Rp, Rs)
   \item{Rp}{ allowable decibels of ripple in the pass band. }
   \item{Rs}{ minimum attenuation in the stop band in dB. }
 }
-\details{
-}
 \value{
   An object of class \code{FilterOfOrder} with the following list elements:
   \item{n}{ filter order }
@@ -32,7 +30,7 @@ ellipord(Wp, Ws, Rp, Rs)
   This object can be passed directly to \code{ellip} to compute discrete filter coefficients.
 }
 \references{
-  Lamar, Marcus Vinicius, Notas de aula da disciplina TE 456 - Circuitos Analogicos II, UFPR, 2001/2002.
+Lamar, Marcus Vinicius, Notas de aula da disciplina TE 456 - Circuitos Analogicos II, UFPR, 2001/2002.
 
 Octave Forge \url{http://octave.sf.net}
 
