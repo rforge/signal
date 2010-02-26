@@ -45,13 +45,13 @@ Most of these routines were translated from Octave Forge routines. The
 main credit goes to the original Octave authors:
 
   Paul Kienzle, John W. Eaton, Kurt Hornik, Andreas Weingessel, Kai
-  Habel, Julius O. Smith III, Bill Lash, AndrÃ© Carezia, Paulo Neis,
+  Habel, Julius O. Smith III, Bill Lash, André Carezia, Paulo Neis,
   David Billinghurst, Friedrich Leisch
 
   Translations by Tom Short \email{tshort@eprisolutions.com} 
   (who maintained the package until 2009).
   
-  Maintainer is Uwe Ligges \email{ligges@statistik.tu-dortmund.de} 
+  Current maintainer is Uwe Ligges \email{ligges@statistik.tu-dortmund.de} 
 }
 \references{
   \url{http://en.wikipedia.org/wiki/Category:Signal_processing}

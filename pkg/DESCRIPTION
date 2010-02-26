@@ -1,8 +1,8 @@
 Package: signal
 Type: Package
 Title: Signal processing
-Version: 0.6
-Date: 2009-12-06
+Version: 0.6-1
+Date: 2010-02-26
 Author: Tom Short <tshort@eprisolutions.com>
 Maintainer: Uwe Ligges <ligges@statistik.tu-dortmund.de>
 Depends: stats, graphics, grDevices, MASS

@@ -33,7 +33,8 @@ kaiserord(f, m, dev, Fs = 2)
   \item{beta}{ shape parameter }
 }
 \references{
-  Oppenheim, A. V.; Schafer, R. W.; and Buck J. R. (1999). Discrete-time signal processing. Upper Saddle River, N.J.: Prentice Hall.
+  Oppenheim, A. V.; Schafer, R. W.; and Buck J. R. (1999). 
+    Discrete-time signal processing. Upper Saddle River, N.J.: Prentice Hall.
 
   \url{http://en.wikipedia.org/wiki/Kaiser_window}
 
@@ -72,7 +73,7 @@ for (i in 1:4) {
   kaisprm <- kaiserord(bands, mag, dev, Fs)
   with(kaisprm, {
     d <<- max(1, trunc(n/10))
-    if (mag[length(mag)]==1 && (d %% 2) == 1)
+    if (mag[length(mag)]==1 && (d \%\% 2) == 1)
       d <<- d+1
     f1 <<- freqz(fir1(n, Wc, type, kaiser(n+1, beta), 'noscale'), 
         Fs = Fs)
@@ -89,8 +90,7 @@ for (i in 1:4) {
     hi <- mag[i/2] + dev[1]
     lo <- max(mag[i/2] - dev[1], 0)
     lines(c(b[i-1], b[i], b[i], b[i-1], b[i-1]), c(hi, hi, lo, lo, hi))
-  } 
-}
+  }
 par(op)
 }
 \keyword{ math }
