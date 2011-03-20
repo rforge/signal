@@ -170,7 +170,3 @@ linspace <- function(from, to, n = 500)
 
 logseq <- function(from, to, n = 500)
   exp(seq(log(abs(from)), log(abs(to)), length = n))
-
-roots <- function(x) {
-  polyroot(rev(x))
-}
