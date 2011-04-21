@@ -18,7 +18,6 @@ Zpg(zero, pole, gain)
 \method{as.Zpg}{Zpg}(x, ...)
 
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{zero }{complex vector of the zeros of the model.}
   \item{pole }{complex vector of the poles of the model.}
@@ -30,7 +29,7 @@ Zpg(zero, pole, gain)
   \code{as.Zpg} converts from other forms, including \code{Arma} and \code{Ma}. 
 }
 \value{
-  An object of class "Zpg", containing the list elements:
+  An object of class \dQuote{Zpg}, containing the list elements:
   \item{zero }{complex vector of the zeros of the model.}
   \item{pole }{complex vector of the poles of the model.}
   \item{gain }{gain of the model.}
