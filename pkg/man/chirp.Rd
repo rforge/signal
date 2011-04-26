@@ -17,7 +17,6 @@ chirp(t, f0 = 0, t1 = 1, f1 = 100, form = c("linear", "quadratic", "logarithmic"
   \item{phase}{ phase shift at t=0. }
 }
 \details{
-% deqn{latex}{ascii}
 
   \sQuote{linear} is:
   
