@@ -11,11 +11,11 @@
 \usage{
 Zpg(zero, pole, gain)
 
-\method{as.Zpg}{Arma}(x, ...)
+\method{as.Zpg}{Arma}(x, \dots)
 
-\method{as.Zpg}{Ma}(x, ...)
+\method{as.Zpg}{Ma}(x, \dots)
 
-\method{as.Zpg}{Zpg}(x, ...)
+\method{as.Zpg}{Zpg}(x, \dots)
 
 }
 \arguments{
