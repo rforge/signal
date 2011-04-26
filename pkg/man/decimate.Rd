@@ -15,7 +15,7 @@ decimate(x, q, n = if (ftype == "iir") 8 else 30, ftype = "iir")
 }
 \details{
  By default, an order 8 Chebyshev type I
-filter is used or a 30-point FIR filter if \code{ftype} is 'fir'.  Note
+filter is used or a 30-point FIR filter if \code{ftype} is \code{'fir'}.  Note
 that \code{q} must be an integer for this rate change method.
 }
 \value{
