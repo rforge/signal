@@ -8,11 +8,11 @@
   Performs an n-point running median. For Matlab/Octave compatibility.
 }
 \usage{
-medfilt1(x, n = 3, ...)
+medfilt1(x, n = 3, \dots)
 
 MedianFilter(n = 3)
 
-\method{filter}{MedianFilter}(filt, x, ...)
+\method{filter}{MedianFilter}(filt, x, \dots)
 }
 \arguments{
   \item{x}{ signal to be filtered. }
@@ -27,7 +27,7 @@ MedianFilter(n = 3)
   For \code{medfilt1}, the filtered signal of
   \code{length(x)}.
 
-  For \code{MedianFilter}, a class of "MedianFilter" that can be used
+  For \code{MedianFilter}, a class of \dQuote{MedianFilter} that can be used
   with \code{filter} to apply a median filter to a signal.
 }
 \references{

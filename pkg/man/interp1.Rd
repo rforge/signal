@@ -11,7 +11,7 @@ interp1(x, y, xi, method = c("linear", "nearest", "pchip", "cubic", "spline"), e
   \item{x,y}{ vectors giving the coordinates of the points to be
           interpolated. \code{x} is assumed to be strictly monotonic.}
   \item{xi}{ points at which to interpolate. }
-  \item{method}{ one of "linear", "nearest", "pchip", "cubic", "spline". }
+  \item{method}{ one of \code{"linear"}, \code{"nearest"}, \code{"pchip"}, \code{"cubic"}, \code{"spline"}. }
   \item{extrap}{ if \code{TRUE} or \code{'extrap'}, then extrapolate values beyond
      the endpoints. If \code{extrap} is a number, replace values beyond the
      endpoints with that number (defaults to \code{NA}).  }
@@ -21,15 +21,15 @@ interp1(x, y, xi, method = c("linear", "nearest", "pchip", "cubic", "spline"), e
 
   The following methods of interpolation are available:
 
-  'nearest': return nearest neighbour
+  \code{'nearest'}: return nearest neighbour
 
-  'linear': linear interpolation from nearest neighbours
+  \code{'linear'}: linear interpolation from nearest neighbours
 
-  'pchip': piece-wise cubic hermite interpolating polynomial
+  \code{'pchip'}: piece-wise cubic hermite interpolating polynomial
 
-  'cubic': cubic interpolation from four nearest neighbours
+  \code{'cubic'}: cubic interpolation from four nearest neighbours
 
-  'spline': cubic spline interpolation--smooth first and second
+  \code{'spline'}: cubic spline interpolation--smooth first and second
            derivatives throughout the curve
 
 }

@@ -20,7 +20,7 @@
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{filt}{ For the default case, the moving-average coefficients of
-    an ARMA filter (normally called 'b'). Generically, \code{filt}
+    an ARMA filter (normally called \sQuote{b}). Generically, \code{filt}
     specifies an arbitrary filter operation.}
   \item{a}{ the autoregressive (recursive) coefficients of an ARMA filter. }
   \item{x}{ the input signal to be filtered. }

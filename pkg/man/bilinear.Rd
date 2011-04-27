@@ -66,7 +66,7 @@ not be a problem.
   \item{b}{ moving average (MA) polynomial coefficients }
   \item{a}{ autoregressive (AR) polynomial coefficients }
 }
-\references{ Proakis & Manolakis (1992). Digital Signal Processing. New York:
+\references{ Proakis & Manolakis (1992). \emph{Digital Signal Processing}. New York:
   Macmillan Publishing Company.
 
   \url{http://en.wikipedia.org/wiki/Bilinear_transform}

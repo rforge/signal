@@ -57,12 +57,12 @@ inside loops and function calls, so explicit calls to \code{print} or
 }
 \value{
   A list of class \code{grpdelay} with items:
-  \item{gd }{the group delay, in units of samples.  It can be converted
+  \item{gd}{ the group delay, in units of samples.  It can be converted
     to seconds by multiplying by the sampling period (or dividing by
     the sampling rate \code{Fs}).}
-  \item{w }{frequencies at which the group delay was calculated.}
-  \item{ns }{number of points at which the group delay was calculated.}
-  \item{HzFlag }{\code{TRUE} for frequencies in Hz, \code{FALSE} for frequencies in radians.}
+  \item{w}{ frequencies at which the group delay was calculated.}
+  \item{ns}{ number of points at which the group delay was calculated.}
+  \item{HzFlag}{ \code{TRUE} for frequencies in Hz, \code{FALSE} for frequencies in radians.}
 }
 \references{
   

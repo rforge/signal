@@ -12,21 +12,21 @@ chirp(t, f0 = 0, t1 = 1, f1 = 100, form = c("linear", "quadratic", "logarithmic"
   \item{f0}{ frequency at time t=0. }
   \item{t1}{ time, s. }
   \item{f1}{ frequency at time t=t1. }
-  \item{form}{ shape of frequency sweep, one of \dQuote{linear}, \dQuote{quadratic},
-    or \dQuote{logarithmic}. }
+  \item{form}{ shape of frequency sweep, one of \code{"linear"}, \code{"quadratic"},
+    or \code{"logarithmic"}. }
   \item{phase}{ phase shift at t=0. }
 }
 \details{
 
-  \sQuote{linear} is:
+  \code{'linear'} is:
   
   \deqn{f(t) = (f1-f0)*(t/t1) + f0}
   
-  \sQuote{quadratic} is:
+  \code{'quadratic'} is:
 
   \deqn{f(t) = (f1-f0)*{t/t1}^2 + f0}
   
-  \sQuote{logarithmic} is:
+  \code{'logarithmic'} is:
 
   \deqn{f(t) = (f1-f0)^{t/t1} + f0}
 }

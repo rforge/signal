@@ -42,8 +42,8 @@ needed there.
 }
 \value{
   For \code{impz}, a list of class \code{impz} with items:
-  \item{x }{impulse response signal. }
-  \item{t }{time.}
+  \item{x}{ impulse response signal. }
+  \item{t}{ time.}
 }
 \references{ 
   \url{http://en.wikipedia.org/wiki/Impulse_response}
@@ -59,4 +59,3 @@ impz(bt)
 impz(ellip(5, 0.5, 30, 0.3))
 }
 \keyword{ math }
-
