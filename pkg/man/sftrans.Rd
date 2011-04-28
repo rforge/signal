@@ -99,7 +99,7 @@ pole at \eqn{x}, and converting the result into the form:
 Please note that a pole and a zero at the same place exactly cancel.
 This is significant for High Pass, Band Pass and Band Stop filters
 which create numerous extra poles and zeros, most of which cancel.
-Those which do not cancel have a `fill-in' effect, extending the 
+Those which do not cancel have a \sQuote{fill-in} effect, extending the 
 shorter of the sets to have the same number of as the longer of the
 sets of poles and zeros (or at least split the difference in the case
 of the band pass filter).  There may be other opportunistic
@@ -114,16 +114,16 @@ yield more poles than zeros, so this will not be a problem.
 }
 \value{
   For the default case or for \code{sftrans.Zpg}, an object of class
-  "Zpg", containing the list elements:
-  \item{zero }{complex vector of the zeros of the transformed model}
-  \item{pole }{complex vector of the poles of the transformed model}
-  \item{gain }{gain of the transformed model}
+  \dQuote{Zpg}, containing the list elements:
+  \item{zero}{ complex vector of the zeros of the transformed model}
+  \item{pole}{ complex vector of the poles of the transformed model}
+  \item{gain}{ gain of the transformed model}
   For \code{sftrans.Arma}, an object of class
-  "Arma", containing the list elements:
+  \dQuote{Arma}, containing the list elements:
   \item{b}{ moving average (MA) polynomial coefficients }
   \item{a}{ autoregressive (AR) polynomial coefficients }
 }
-\references{ Proakis & Manolakis (1992). Digital Signal Processing. New York:
+\references{ Proakis & Manolakis (1992). \emph{Digital Signal Processing}. New York:
   Macmillan Publishing Company.
 
   Octave Forge \url{http://octave.sf.net}

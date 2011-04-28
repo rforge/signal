@@ -2,7 +2,7 @@
 \alias{specgram}
 \alias{plot.specgram}
 \alias{print.specgram}
-\title{ Spectogram plot }
+\title{ Spectrogram plot }
 \description{
 Generate a spectrogram for the signal. This chops the signal into
 overlapping slices, windows each slice and applies a Fourier
@@ -11,9 +11,9 @@ transform to determine the frequency components at that slice.
 \usage{
 specgram(x, n = min(256, length(x)), Fs = 2, window = hanning(n), overlap = length(window)/2)
 
-\method{plot}{specgram}(x, ...)
+\method{plot}{specgram}(x, \ldots)
 
-\method{print}{specgram}(x, ...)
+\method{print}{specgram}(x, \ldots)
 }
 \arguments{
   \item{x}{ the vector of samples. }
@@ -28,7 +28,7 @@ specgram(x, n = min(256, length(x)), Fs = 2, window = hanning(n), overlap = leng
 }
 \details{
 
-When results of \code{specgram} are printed, a spectogram will be plotted.
+When results of \code{specgram} are printed, a spectrogram will be plotted.
 As with
 \code{lattice} plots, automatic printing does not work inside loops and
 function calls, so explicit calls to \code{print} or \code{plot} are
@@ -90,9 +90,9 @@ the image.
 }
 \value{
   For \code{specgram} list of class \code{specgram} with items:
-  \item{S }{complex output of the FFT, one row per slice. }
-  \item{f }{the frequency indices corresponding to the rows of S.}
-  \item{t }{the time indices corresponding to the columns of S.}
+  \item{S}{ complex output of the FFT, one row per slice. }
+  \item{f}{ the frequency indices corresponding to the rows of S.}
+  \item{t}{ the time indices corresponding to the columns of S.}
 }
 \references{
   Octave Forge \url{http://octave.sf.net}

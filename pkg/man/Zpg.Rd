@@ -19,10 +19,10 @@ Zpg(zero, pole, gain)
 
 }
 \arguments{
-  \item{zero }{complex vector of the zeros of the model.}
-  \item{pole }{complex vector of the poles of the model.}
-  \item{gain }{gain of the model.}
-  \item{x }{model to be converted.}
+  \item{zero}{ complex vector of the zeros of the model.}
+  \item{pole}{ complex vector of the poles of the model.}
+  \item{gain}{ gain of the model.}
+  \item{x}{ model to be converted.}
   \item{\ldots}{ additional arguments (ignored). }
 }
 \details{
@@ -30,9 +30,9 @@ Zpg(zero, pole, gain)
 }
 \value{
   An object of class \dQuote{Zpg}, containing the list elements:
-  \item{zero }{complex vector of the zeros of the model.}
-  \item{pole }{complex vector of the poles of the model.}
-  \item{gain }{gain of the model.}
+  \item{zero}{ complex vector of the zeros of the model.}
+  \item{pole}{ complex vector of the poles of the model.}
+  \item{gain}{ gain of the model.}
 }
 \author{ Tom Short }
 \seealso{ \code{\link{Arma}}, \code{\link{bilinear}} }

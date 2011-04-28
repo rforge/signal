@@ -47,10 +47,10 @@ to its negligible amplitude errors. This window has low pass-band ripple, but hi
   Filter coefficients.
 }
 \references{      
-     Oppenheim, A.V., and R.W. Schafer, "Discrete-Time Signal Processing", Upper Saddle River, NJ: Prentice-Hall, 1999.
+     Oppenheim, A.V., and R.W. Schafer, \emph{Discrete-Time Signal Processing}, Upper Saddle River, NJ: Prentice-Hall, 1999.
 
-Gade, S; Herlufsen, H; (1987) "Use of weighting functions in DFT/FFT
-analysis (Part I)", Bruel & Kjaer Technical Review No. 3.
+Gade, S; Herlufsen, H; (1987) \dQuote{Use of weighting functions in DFT/FFT
+analysis (Part I)}, \emph{Bruel & Kjaer Technical Review} No. 3.
 
 \url{http://en.wikipedia.org/wiki/Windowed_frame}
 

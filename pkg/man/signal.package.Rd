@@ -52,7 +52,7 @@ main credit goes to the original Octave authors:
   Translations by Tom Short \email{tshort@eprisolutions.com} 
   (who maintained the package until 2009).
   
-  Current maintainer is Uwe Ligges \email{ligges@statistik.tu-dortmund.de} 
+  Current maintainer is Uwe Ligges \email{ligges@statistik.tu-dortmund.de}.
 }
 \references{
   \url{http://en.wikipedia.org/wiki/Category:Signal_processing}
