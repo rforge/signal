@@ -27,10 +27,10 @@ buttord(Wp, Ws, Rp, Rs)
         |H(W)|^2 = 1 / [1+(W/Wc)^(2n)] = 10^(-R/10)}
 
   With some algebra, you can solve simultaneously for \code{Wc} and \code{n} given
-\code{Ws}, \code{Rs} and \code{Wp}, \code{Rp}.  For high-pass filters, subtracting the band edges
+\code{Ws}, \code{Rs} and \code{Wp}, \code{Rp}. For high-pass filters, subtracting the band edges
 from Fs/2, performing the test, and swapping the resulting \code{Wc} back
-works beautifully.  For bandpass- and bandstop-filters, this process
-significantly overdesigns.  Artificially dividing \code{n} by 2 in this case
+works beautifully. For bandpass- and bandstop-filters, this process
+significantly overdesigns. Artificially dividing \code{n} by 2 in this case
 helps a lot, but it still overdesigns.
 }
 \value{

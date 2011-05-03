@@ -35,9 +35,9 @@ at w after the bilinear transform is complete.
 
 The bilinear transform is:
 
-\deqn{ z = \frac{1 + sT/2}{1 - sT/2}}{ z = (1 + sT/2) / (1 - sT/2)}
+\deqn{z = \frac{1 + sT/2}{1 - sT/2}}{z = (1 + sT/2) / (1 - sT/2)}
 
-\deqn{ s = \frac{T}{2}\frac{z - 1}{z + 1}}{s = (T/2) * (z - 1) / (z + 1)}
+\deqn{s = \frac{T}{2}\frac{z - 1}{z + 1}}{s = (T/2) * (z - 1) / (z + 1)}
 
 Please note that a pole and a zero at the same place exactly cancel.
 This is significant since the bilinear transform creates numerous

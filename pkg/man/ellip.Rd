@@ -4,7 +4,7 @@
 \alias{ellip.FilterOfOrder}
 \title{ Elliptic or Cauer filter }
 \description{
-  Generate an Elliptic or Cauer filter (discrete and contnuious).
+  Generate an Elliptic or Cauer filter (discrete and continuous).
 }
 \usage{
 \method{ellip}{default}(n, Rp, Rs, W, type = c("low", "high", "stop",
@@ -39,7 +39,7 @@
   \item{b}{ moving average (MA) polynomial coefficients }
   \item{a}{ autoregressive (AR) polynomial coefficients }
 }
-\references{ Oppenheim, Alan V., Discrete Time Signal Processing,
+\references{ Oppenheim, Alan V., \emph{Discrete Time Signal Processing},
   Hardcover, 1999.
   
 Parente Ribeiro, E., Notas de aula da disciplina TE498 -  Processamento 
