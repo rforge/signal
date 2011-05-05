@@ -16,7 +16,7 @@ resample(x, p, q = 1, d = 5)
 Note that \code{p} and \code{q} do
 not need to be integers since this routine does not use a polyphase
 rate change algorithm, but instead uses bandlimited interpolation,
-wherein the continous time signal is estimated by summing the sinc
+wherein the continuous time signal is estimated by summing the sinc
 functions of the nearest neighbouring points up to distance \code{d}.
 
 Note that resample computes all samples up to but not including time

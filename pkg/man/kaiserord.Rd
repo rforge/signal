@@ -33,7 +33,7 @@ kaiserord(f, m, dev, Fs = 2)
   \item{beta}{ shape parameter }
 }
 \references{
-  Oppenheim, A. V.; Schafer, R. W.; and Buck J. R. (1999). 
+  Oppenheim, A. V., Schafer, R. W., and Buck, J. R. (1999). 
     \emph{Discrete-time signal processing}. Upper Saddle River, N.J.: Prentice Hall.
 
   \url{http://en.wikipedia.org/wiki/Kaiser_window}

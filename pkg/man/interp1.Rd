@@ -5,7 +5,8 @@
   Interpolation methods, including linear, spline, and cubic interpolation.
 }
 \usage{
-interp1(x, y, xi, method = c("linear", "nearest", "pchip", "cubic", "spline"), extrap = NA, \ldots)
+interp1(x, y, xi, method = c("linear", "nearest", "pchip", "cubic", "spline"), 
+        extrap = NA, \ldots)
 }
 \arguments{
   \item{x,y}{ vectors giving the coordinates of the points to be
@@ -25,7 +26,7 @@ interp1(x, y, xi, method = c("linear", "nearest", "pchip", "cubic", "spline"), e
 
   \code{'linear'}: linear interpolation from nearest neighbours
 
-  \code{'pchip'}: piece-wise cubic hermite interpolating polynomial
+  \code{'pchip'}: piecewise cubic hermite interpolating polynomial
 
   \code{'cubic'}: cubic interpolation from four nearest neighbours
 

@@ -17,7 +17,7 @@ kaiser(n, beta)
   An array of filter coefficients of \code{length(n)}.
 }
 \references{
-  Oppenheim, A. V.; Schafer, R. W.; and Buck J. R. (1999). \emph{Discrete-time signal processing}. Upper Saddle River, N.J.: Prentice Hall.
+  Oppenheim, A. V., Schafer, R. W., and Buck, J. R. (1999). \emph{Discrete-time signal processing}. Upper Saddle River, N.J.: Prentice Hall.
 
   \url{http://en.wikipedia.org/wiki/Kaiser_window}
 

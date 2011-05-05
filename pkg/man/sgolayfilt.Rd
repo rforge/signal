@@ -1,9 +1,9 @@
 \name{sgolayfilt}
 \alias{sgolayfilt}
 \alias{filter.sgolayFilter}
-\title{ Apply a Savitsky-Golay smoothing filter }
+\title{ Apply a Savitzky-Golay smoothing filter }
 \description{
-Smooth data with a Savitsky-Golay smoothing filter.
+Smooth data with a Savitzky-Golay smoothing filter.
 }
 \usage{
 sgolayfilt(x, p = 3, n = p + 3 - p\%\%2, m = 0, ts = 1)

@@ -10,7 +10,7 @@ Signal processing
 A set of generally Matlab/Octave-compatible signal processing
 functions. Includes filter generation utilities, filtering functions,
 resampling routines, and visualization of filter models. It also
-includes interpolation functions and some Matlab compatability
+includes interpolation functions and some Matlab compatibility
 functions.
 }
 \details{
