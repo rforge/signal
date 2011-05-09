@@ -51,7 +51,7 @@ Octave Forge \url{http://octave.sf.net}
 
 }
 \author{ Original Octave version by Paulo Neis
-  \email{p\_neis@yahoo.com.br}.
+  \email{p_neis@yahoo.com.br}.
   Modified by Doug Stewart. Conversion to R by Tom Short. }
 \seealso{ \code{\link{Arma}}, \code{\link{filter}}, \code{\link{butter}},
   \code{\link{cheby1}}, and \code{\link{ellipord}}}
