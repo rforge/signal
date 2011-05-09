@@ -2,7 +2,6 @@
 \alias{medfilt1}
 \alias{MedianFilter}
 \alias{filter.MedianFilter}
-\alias{MedianFilter}
 \title{ Median filter }
 \description{
   Performs an n-point running median. For Matlab/Octave compatibility.
