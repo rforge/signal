@@ -58,28 +58,28 @@ gain: \eqn{-x}      \tab \eqn{-1/x}  \cr
 }
 
 Band-Pass Transform         
-\deqn{S -> C \frac{S^2+F_hF_l}{S(F_h-F_l)}}
+\deqn{S -> C \frac{S^2+F_hF_l}{S(F_h-F_l)}}{S -> C(S^2+F_h F_l)/[S(F_h-F_l)]}
 
 \tabular{ll}{
 Zero at x                         \tab Pole at x                 \cr
-zero: \eqn{b \pm \sqrt(b^2-F_hF_l)}\tab \eqn{b \pm \sqrt(b^2-F_hF_l)}\cr
+zero: \eqn{b \pm \sqrt(b^2-F_hF_l)}{b+/-\sqrt(b^2-F_h F_l)}\tab \eqn{b \pm \sqrt(b^2-F_hF_l)}{b+/-\sqrt(b^2-F_h F_l)}\cr
 pole: \eqn{0}                     \tab \eqn{0}                   \cr 
 gain: \eqn{C/(F_h-F_l)}           \tab \eqn{(F_h-F_l)/C}         \cr
 \eqn{b = x/C (F_h-F_l)/2}         \tab \eqn{b=x/C (F_h-F_l)/2}   \cr
 }
 
 Band-Stop Transform         
-\deqn{S -> C \frac{S(F_h-F_l)}{S^2+F_hF_l}}
+\deqn{S -> C \frac{S(F_h-F_l)}{S^2+F_hF_l}}{S -> C[S(F_h-F_l)]/(S^2+F_h F_l)}
 \tabular{ll}{
 Zero at x                         \tab Pole at x                 \cr
-zero: \eqn{b \pm \sqrt(b^2-F_hF_l)}\tab \eqn{b \pm \sqrt(b^2-F_hF_l)}\cr
-pole: \eqn{\pm \sqrt(-F_hF_l)}     \tab \eqn{\pm \sqrt(-F_hF_l)}      \cr 
+zero: \eqn{b \pm \sqrt(b^2-F_hF_l)}{b+/-\sqrt(b^2-F_h F_l)}\tab \eqn{b \pm \sqrt(b^2-F_hF_l)}{b+/-\sqrt(b^2-F_h F_l)}\cr
+pole: \eqn{\pm \sqrt(-F_hF_l)}{+/-\sqrt(-F_h F_l)}     \tab \eqn{\pm \sqrt(-F_hF_l)}{+/-\sqrt(-F_h F_l)}      \cr 
 gain: \eqn{-x}                    \tab \eqn{-1/x}                \cr
 \eqn{b = C/x (F_h-F_l)/2}         \tab \eqn{b=C/x (F_h-F_l)/2}   \cr
 }
 
 Bilinear Transform         
-\deqn{S -> \frac{2}{T} \frac{z-1}{z+1}}
+\deqn{S -> \frac{2}{T} \frac{z-1}{z+1}}{S -> (2/T)[(z-1)/(z+1)]}
 \tabular{ll}{
 Zero at x                       \tab Pole at x               \cr
 zero: \eqn{(2+xT)/(2-xT)}       \tab \eqn{(2+xT)/(2-xT)}     \cr
@@ -94,7 +94,7 @@ you can derive the above formulae yourself by substituting the
 transform for \eqn{S} into \eqn{H(S)=S-x} for a zero at \eqn{x} or \eqn{H(S)=1/(S-x)} for a
 pole at \eqn{x}, and converting the result into the form:
 
-   \deqn{H(S) = g \mbox{prod}(S-Xi) / \mbox{prod}(S-Xj)}
+   \deqn{H(S) = g \mbox{prod}(S-Xi) / \mbox{prod}(S-Xj)}{g prod(S-Xi) / prod(S-Xj)}
 
 Please note that a pole and a zero at the same place exactly cancel.
 This is significant for High Pass, Band Pass and Band Stop filters
