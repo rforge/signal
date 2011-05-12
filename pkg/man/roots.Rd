@@ -9,9 +9,9 @@ roots(x, method = c("polyroot", "eigen"))
   \item{x}{Polynomial coefficients with coefficients given in order from highest to lowest
     polynomial power. This is the Matlab/Octave convention; it is
     opposite of the convention used by \code{polyroot}.}
-  \item{method}{either \dQuote{polyroot} (default) which uses \code{\link{polyroot}} for its computations internally 
+  \item{method}{Either \dQuote{polyroot} (default) which uses \code{\link{polyroot}} for its computations internally 
     (and is typically more accurate) or \dQuote{eigen} which uses eigenvalues of the companion matrix for its computation. 
-    The latter returns complex values in case of real valued solutions in less cases.
+    The latter returns complex values in case of real valued solutions in less cases.}
 }
 \value{
   A complex array with the roots of the polynomial.
