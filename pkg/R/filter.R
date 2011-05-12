@@ -71,8 +71,16 @@ an <- function(degrees) {
   exp(1i*degrees*pi/180)
 }
 
-roots <- function(x) {
-  polyroot(rev(x))
+roots <- function(x, method = c("polyroot", "eigen")) {
+    method <- match.arg(method)
+    if(method=="polyroot")
+        return(polyroot(rev(x)))
+    if(!is.numeric(x))
+        stop("x must be numeric")
+    success <- library("pracma", pos = "package:base", logical.return = TRUE, warn.conflicts = FALSE)
+    if(!success)
+        stop("method 'eigen' is only available if package 'pracma' is installed")
+    rev(pracma::roots(as.numeric(x)))
 }
 
 Arma <- function(b, a) {

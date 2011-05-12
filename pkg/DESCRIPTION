@@ -5,6 +5,7 @@ Date: 2011-03-20
 Author: Tom Short <tshort@eprisolutions.com>
 Maintainer: Uwe Ligges <ligges@statistik.tu-dortmund.de>
 Depends: R (>= 2.10.0), stats, graphics, grDevices, MASS
+Suggests: pracma
 Description: A set of generally Matlab/Octave-compatible signal processing
   functions. Includes filter generation utilities, filtering functions,
   resampling routines, and visualization of filter models. It also
