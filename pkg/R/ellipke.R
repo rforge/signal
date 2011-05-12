@@ -81,7 +81,7 @@ ellipke <- function(m) {
       a <- t
       f <- f * 2
       sum <- sum + f * c^2
-      if (all(c/a < eps)) break
+      if (all(c/a < .Machine$double.eps)) break
     } 
     if (n >= Nmax) stop("ellipke: not enough workspace")
     k[idx] <- 0.5*pi / a

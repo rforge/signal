@@ -45,7 +45,7 @@ Octave Forge \url{http://octave.sf.net}
 \seealso{ \code{\link{approx}}, \code{\link{filter}},
   \code{\link{resample}}, \code{\link{interp}}, \code{\link{spline}}  }
 \examples{
-xf <- linspace(0,11,500)
+xf <- seq(0, 11, length=500)
 yf <- sin(2*pi*xf/5)
 #xp <- c(0:1,3:10)
 #yp <- sin(2*pi*xp/5)

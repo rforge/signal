@@ -46,7 +46,7 @@ In contrast to \code{spline}, \code{pchip} preserves the monotonicity of
   \email{pkienzle@user.sf.net}. Conversion to R by Tom Short. }
 \seealso{ \code{\link{approx}}, \code{\link{spline}}, \code{\link{interp1}}  }
 \examples{
-xf <- linspace(0, 11, 500)
+xf <- seq(0, 11, length=500)
 yf <- sin(2*pi*xf/5)
 xp <- c(0:10)
 yp <- sin(2*pi*xp/5)

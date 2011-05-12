@@ -169,12 +169,7 @@ postpad <- function(x, n) {
 ifft <- function(x)
   fft(x, inverse = TRUE) / length(x)
 
-eps <- .Machine$double.eps
-
 sinc <- function(x) sin(pi*x)/(pi*x)
-
-linspace <- function(from, to, n = 500)
-  seq(from, to, length = n)
 
 logseq <- function(from, to, n = 500)
   exp(seq(log(abs(from)), log(abs(to)), length = n))

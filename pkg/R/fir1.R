@@ -86,9 +86,9 @@ fir1 <- function(n, w, type = c("low", "high", "stop", "pass", "DC-0", "DC-1"), 
       if (M == 1)
         window = c(window, window)
       else if (M < 4)
-        window = interp1(linspace(0,1,M),window,linspace(0,1,M+1),'linear')
+        window = interp1(seq(0,1,length=M),window,seq(0,1,length=M+1),'linear')
       else
-        window = interp1(linspace(0,1,M),window,linspace(0,1,M+1),'spline')
+        window = interp1(seq(0,1,length=M),window,seq(0,1,length=M+1),'spline')
     }
   }
 
@@ -129,4 +129,3 @@ fir1 <- function(n, w, type = c("low", "high", "stop", "pass", "DC-0", "DC-1"), 
 #!assert(fir1(10,.5,'hanning','scale'), fir1(10,.5,'scale','hanning','low'))
 #!assert(fir1(10,.5,'haNNing','NOscale'), fir1(10,.5,'noscale','Hanning','LOW'))
 #!assert(fir1(10,.5,'boxcar',[]), fir1(10,.5,'boxcar'))
-

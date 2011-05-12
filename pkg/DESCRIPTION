@@ -1,8 +1,8 @@
 Package: signal
 Title: Signal processing
-Version: 0.6-2
-Date: 2011-03-20
-Author: Tom Short <tshort@eprisolutions.com>
+Version: 0.7-0
+Date: 2011-05-12
+Author: Tom Short <tshort@eprisolutions.com> and many more authors. For Details on authors of functions see the code and help files.
 Maintainer: Uwe Ligges <ligges@statistik.tu-dortmund.de>
 Depends: R (>= 2.10.0), stats, graphics, grDevices, MASS
 Suggests: pracma
@@ -12,4 +12,3 @@ Description: A set of generally Matlab/Octave-compatible signal processing
   includes interpolation functions and some Matlab comparability
   functions.
 License: GPL-2
-

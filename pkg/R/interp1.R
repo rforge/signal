@@ -260,7 +260,7 @@ interp1 <- function(x, y, xi,
 }
 
 #!demo
-###xf=linspace(0,10); yf = sin(2*pi*xf/5)
+###xf=seq(0,10,length=500); yf = sin(2*pi*xf/5)
 ###xp=c(0,4,5,6,8,10); yp = sin(2*pi*xp/5)
 ###xp=c(0:4,6:10); yp = sin(2*pi*xp/5)
 ###xp=0:10; yp = sin(2*pi*xp/5)

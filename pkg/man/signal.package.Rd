@@ -27,7 +27,7 @@ cheby1, cheby2, ellip, ellipord, sftrans
 
 \emph{Interpolation:} interp1, pchip
 
-\emph{Compatibility routines and utilities:} ifft, linspace, sinc,
+\emph{Compatibility routines and utilities:} ifft, sinc,
 postpad, chirp, poly, polyval
 
 \emph{Windowing:} bartlett, blackman, boxcar, flattopwin, gausswin,

@@ -74,7 +74,7 @@ fir2 <- function(n, f, m, grid_n = 512, ramp_n = grid_n/20, window = hamming(n+1
 
   ## make sure grid is big enough for the window
   if (2*grid_n < n+1)
-    grid_n = 2^nextpow2(n+1)
+    grid_n = 2^ceiling(log2(abs(n+1)))
 
   ## Apply ramps to discontinuities
   if (ramp_n > 0) {
@@ -102,7 +102,7 @@ fir2 <- function(n, f, m, grid_n = 512, ramp_n = grid_n/20, window = hamming(n+1
   
   ## interpolate between grid points
   grid = approx(f,m,seq(0, 1, length = grid_n+1))$y
-  # hold on; plot(linspace(0,1,grid_n+1),grid,'-+g;grid;'); hold off; pause
+  # hold on; plot(seq(0,1,length=grid_n+1),grid,'-+g;grid;'); hold off; pause
 
   ## Transform frequency response into time response and
   ## center the response about n/2, truncating the excess

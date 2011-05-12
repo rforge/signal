@@ -62,7 +62,7 @@ needed there.
 \examples{
 b <- c(1, 2)
 a <- c(1, 1)
-w <- linspace(0, 4, 128)
+w <- seq(0, 4, length=128)
 freqs(b, a, w)
 }
 \keyword{ math }
