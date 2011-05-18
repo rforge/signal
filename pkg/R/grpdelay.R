@@ -275,7 +275,7 @@ grpdelay.default <- function(filt, a = 1, n = 512, whole = FALSE, Fs = NULL, ...
 #! assert(w,1/4*[0:3]',10*eps)
 
 #!test % 0E
-#! [gd,f] = grpdelay([1 -0.9j],[],4,'whole',1)
+#! [gd,f] = grpdelay([1, -0.9i],[],4,'whole',1)
 #! gd0 = 0.447513812154696; gdm1 =0.473684210526316
 #! assert(gd,[gd0;-9;gd0;gdm1],20*eps)
 #! assert(f,1/4*[0:3]',10*eps)
@@ -291,7 +291,7 @@ grpdelay.default <- function(filt, a = 1, n = 512, whole = FALSE, Fs = NULL, ...
 #!test % 3
 #! b1=[1,2];a1f=[0.25,0.5,1];a1=fliplr(a1f)
 #! % gd1=grpdelay(b1,a1,4)
-#! gd=grpdelay(conv(b1,a1f),1,4)-2
+#! gd=grpdelay(conv(b1,a1f),1,4)
 #! assert(gd, [0.095238;0.239175;0.953846;1.759360],1e-5)
 
 #!test
@@ -305,4 +305,3 @@ grpdelay.default <- function(filt, a = 1, n = 512, whole = FALSE, Fs = NULL, ...
 #! assert (length(h2), 512)
 #! assert (h, h2(1:256))
 #! assert (w, w2(1:256))
-
