@@ -1,4 +1,8 @@
 library("signal")
+# an
+120*an(30) + 125*an(-160)
+# Arma
+Arma(b = c(1, 2, 1)/3, a = c(1, 1))
 # bartlett
 bartlett(1)
 bartlett(2)
@@ -17,6 +21,8 @@ butter(buttord(1000/(10000/2), 1200/(10000/2), 0.5, 29))    # buttord.Rd
 butter(5, 0.1)  # cheby1.Rd
 # buttord
 buttord(1000/(10000/2), 1200/(10000/2), 0.5, 29)
+# cheb
+signal:::cheb(49, cosh(1/49 * acosh(1/10^(-5)))*cos((pi*0:49)/50))
 # cheb1ord
 cheb1ord(1000/(10000/2), 1200/(10000/2), 0.5, 29)
 # chebwin
@@ -35,6 +41,10 @@ chirp(seq(-2, 15, by=0.001), 400, 10, 100, 'quadratic')
 chirp(seq(0, 5, by=1/8000), 200, 2, 500, "logarithmic")
 chirp(seq(0, 2, by=0.001), 0, 2, 500)   # specgram.R
 chirp(seq(0, 2, by = 0.01), 2, 0.5, 10, 'quadratic') + sin(2*pi*seq(0, 2, by = 0.01)*0.4)  # decimate.Rd
+# conv
+conv(c(1,2,3), c(1,2))
+conv(c(1,2), c(1,2,3))
+conv(c(1,-2), c(1,2))
 # decimate
 decimate(chirp(seq(0, 2, by = 0.01), 2, 0.5, 10, 'quadratic') + sin(2*pi*seq(0, 2, by = 0.01)*0.4), 4)
 # ellip
@@ -51,6 +61,7 @@ fftfilt(rep(1, 10)/10, sin(2*pi*seq(0, 1, len = 100)*2.3) + 0.25*rnorm(length(se
 # filter
 set.seed(1)
 filter(butter(3, 0.1), sin(2*pi*seq(0, 1, len = 100)*2.3) + 0.25*rnorm(length(seq(0, 1, len = 100))))   # example with random numbers, set.seed
+filter(MedianFilter(7), sin(2*pi*seq(0, 1, len=100)*2.3) + 0.25*rlnorm(length(seq(0, 1, len=100)), 0.5))      # medfilt1.Rd
 # filtfilt
 set.seed(1)
 filtfilt(butter(3, 0.1), sin(2*pi*seq(0, 1, len = 100)*2.3) + 0.25*rnorm(length(seq(0, 1, len = 100)))) # example with random numbers, set.seed
@@ -89,8 +100,8 @@ flattopwin(1, sym = 'periodic')
 flattopwin(2, sym = 'symmetric')
 flattopwin(2, sym = 'periodic')
 flattopwin(51, sym = 'symmetric')
-flattopwin(51, sym = 'periodic')
-# fractdiff
+flattopwin(51, sym = 'periodic')       
+# fractdiff signal:::fractdiff
 # freqs
 unclass(freqs(c(1, 2), c(1, 1), seq(0, 4, length=128)))
 # freqz
@@ -149,15 +160,19 @@ hanning(1)
 hanning(2)
 hanning(5)
 hanning(51)
+# ifft
+ifft(fft(1:4))
+ifft(fft(signal:::postpad(c(1,2,3), 4)) * fft(signal:::postpad(c(1,2), 4)))
+ifft(fft(signal:::postpad(c(1,-2), 3)) * fft(signal:::postpad(c(1,2), 3)))
 # impz
 unclass(impz(butter(5, 0.3)))
 unclass(impz(ellip(5, 0.5, 30, 0.3)))
 # interp1
-interp1(c(0:10), sin(2*pi*c(0:10)/5), seq(0,11,length=500), 'linear', extrap = TRUE)
-interp1(c(0:10), sin(2*pi*c(0:10)/5), seq(0,11,length=500), 'spline', extrap = TRUE)
-interp1(c(0:10), sin(2*pi*c(0:10)/5), seq(0,11,length=500), 'pchip', extrap = TRUE)
-interp1(c(0:10), sin(2*pi*c(0:10)/5), seq(0,11,length=500), 'cubic', extrap = TRUE)
-interp1(c(0:10), sin(2*pi*c(0:10)/5), seq(0,11,length=500), 'nearest', extrap = TRUE)
+interp1((0:10), sin(2*pi*(0:10)/5), seq(0,11,length=500), 'linear', extrap = TRUE)
+interp1((0:10), sin(2*pi*(0:10)/5), seq(0,11,length=500), 'spline', extrap = TRUE)
+interp1((0:10), sin(2*pi*(0:10)/5), seq(0,11,length=500), 'pchip', extrap = TRUE)
+interp1((0:10), sin(2*pi*(0:10)/5), seq(0,11,length=500), 'cubic', extrap = TRUE)
+interp1((0:10), sin(2*pi*(0:10)/5), seq(0,11,length=500), 'nearest', extrap = TRUE)
 interp1(c(0, 4, 5, 6, 8, 10), sin(2*pi*c(0, 4, 5, 6, 8, 10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'linear')
 interp1(c(0, 4, 5, 6, 8, 10), sin(2*pi*c(0, 4, 5, 6, 8, 10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'spline')
 interp1(c(0, 4, 5, 6, 8, 10), sin(2*pi*c(0, 4, 5, 6, 8, 10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'cubic')
@@ -166,43 +181,44 @@ interp1(c(0:4, 6:10), sin(2*pi*c(0:4, 6:10)/5), sin(2*pi*seq(0, 10, length=500)/
 interp1(c(0:4, 6:10), sin(2*pi*c(0:4, 6:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'spline')
 interp1(c(0:4, 6:10), sin(2*pi*c(0:4, 6:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'cubic')
 interp1(c(0:4, 6:10), sin(2*pi*c(0:4, 6:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'nearest')
-interp1(c(0:10), sin(2*pi*c(0:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'linear')
-interp1(c(0:10), sin(2*pi*c(0:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'spline')
-interp1(c(0:10), sin(2*pi*c(0:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'cubic')
-interp1(c(0:10), sin(2*pi*c(0:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'nearest')
+interp1((0:10), sin(2*pi*(0:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'linear')
+interp1((0:10), sin(2*pi*(0:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'spline')
+interp1((0:10), sin(2*pi*(0:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'cubic')
+interp1((0:10), sin(2*pi*(0:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'nearest')
 interp1(c(0:1, 3:10), sin(2*pi*c(0:1, 3:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'linear')
 interp1(c(0:1, 3:10), sin(2*pi*c(0:1, 3:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'spline')
 interp1(c(0:1, 3:10), sin(2*pi*c(0:1, 3:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'cubic')
 interp1(c(0:1, 3:10), sin(2*pi*c(0:1, 3:10)/5), sin(2*pi*seq(0, 10, length=500)/5), 'nearest')
-interp1(c(0:10), sin(2*pi*c(0:10)/5), sin(2*pi*seq(0, 10, by=0.05)/5), 'linear')
-interp1(c(0:10), sin(2*pi*c(0:10)/5), sin(2*pi*seq(0, 10, by=0.05)/5), 'spline')
-interp1(c(0:10), sin(2*pi*c(0:10)/5), sin(2*pi*seq(0, 10, by=0.05)/5), 'cubic')
-interp1(c(0:10), sin(2*pi*c(0:10)/5), sin(2*pi*seq(0, 10, by=0.05)/5), 'nearest')
-interp1(c(0:5), sin(2*pi*c(0:5)/5), c(min(c(0:5))-1, max(c(0:5))+1))    # test
-interp1(c(0:5), sin(2*pi*c(0:5)/5), c(0:5), 'nearest') # test, last value??
-interp1(c(0:5), sin(2*pi*c(0:5)/5), c(-1, max(c(0:5))+1)) # test
-interp1(c(0:5), sin(2*pi*c(0:5)/5), c(0:5), 'linear')   # test, last value?
-interp1(c(0:5), sin(2*pi*c(0:5)/5), c(0:5), 'cubic') # test, last value?
-interp1(c(0:5), sin(2*pi*c(0:5)/5), c(0:5), 'spline')   # test, last value?
-interp1(c(1:5), seq(3, 11, by=2), c(0,6), 'linear', 'extrap') # test, last value?
-interp1(c(0:5), sin(2*pi*c(0:5)/5), c(-1, max(c(0:5))+1), 'linear', 5)   # test
-interp1(c(1:2), 1:2, 1.4, 'nearest')  # test
-interp1(c(1:4), 1:4, 1.4, 'cubic')    # test
-interp1(c(1:3), 1:3, 1.4, 'spline')   # test
+interp1((0:10), sin(2*pi*(0:10)/5), sin(2*pi*seq(0, 10, by=0.05)/5), 'linear')
+interp1((0:10), sin(2*pi*(0:10)/5), sin(2*pi*seq(0, 10, by=0.05)/5), 'spline')
+interp1((0:10), sin(2*pi*(0:10)/5), sin(2*pi*seq(0, 10, by=0.05)/5), 'cubic')
+interp1((0:10), sin(2*pi*(0:10)/5), sin(2*pi*seq(0, 10, by=0.05)/5), 'nearest')
+interp1((0:5), sin(2*pi*(0:5)/5), c(min(c(0:5))-1, max((0:5))+1))    # test
+interp1((0:5), sin(2*pi*(0:5)/5), (0:5), 'nearest') # test, last value??
+interp1((0:5), sin(2*pi*(0:5)/5), c(-1, max((0:5))+1)) # test
+interp1((0:5), sin(2*pi*(0:5)/5), (0:5), 'linear')   # test, last value?
+interp1((0:5), sin(2*pi*(0:5)/5), (0:5), 'cubic') # test, last value?
+interp1((0:5), sin(2*pi*(0:5)/5), (0:5), 'spline')   # test, last value?
+interp1((1:5), seq(3, 11, by=2), c(0,6), 'linear', 'extrap') # test, last value?
+interp1((0:5), sin(2*pi*(0:5)/5), c(-1, max(c(0:5))+1), 'linear', 5)   # test
+interp1((1:2), 1:2, 1.4, 'nearest')  # test
+interp1((1:4), 1:4, 1.4, 'cubic')    # test
+interp1((1:3), 1:3, 1.4, 'spline')   # test
 interp1(seq(1, 4, by=2), seq(1, 4, by=2), 1.4, 'nearest')   # test
 interp1(seq(1, 8, by=2), seq(1, 8, by=2), 1.4, 'cubic') # test
 interp1(seq(1, 6, by=2), seq(1, 6, by=2), 1.4, 'spline')    # test
 interp1(seq(1, 4, by=2), seq(1, 4, by=2), c(0,1,1.4,3,4), 'linear') # test ??
 # interp1(1:2, 1:2, 1.4, 'linear') # error
 interp1(seq(1, 4, by=2), seq(1, 4, by=2), c(0, 1, 1.4, 3, 4), 'linear') # test ??
-interp1(t(c(0:5)), t(sin(2*pi*c(0:5)/5)), c(), 'nearest') # test isempty
-interp1(c(0:5), sin(2*pi*c(0:5)/5), c(), 'nearest')    # test isempty
-interp1(t(c(0:5)), t(sin(2*pi*c(0:5)/5)), c(), 'linear') # test isempty
-interp1(c(0:5), sin(2*pi*c(0:5)/5), c(), 'linear')    # test isempty
-interp1(t(c(0:5)), t(sin(2*pi*c(0:5)/5)), c(), 'cubic') # test isempty
-interp1(c(0:5), sin(2*pi*c(0:5)/5), c(), 'cubic')    # test isempty
-interp1(t(c(0:5)), t(sin(2*pi*c(0:5)/5)), c(), 'spline') # test isempty
-interp1(c(0:5), sin(2*pi*c(0:5)/5), c(), 'spline')    # test isempty
+interp1(t(0:5), t(sin(2*pi*(0:5)/5)), c(), 'nearest') # test isempty
+interp1((0:5), sin(2*pi*(0:5)/5), c(), 'nearest')    # test isempty
+interp1(t(0:5), t(sin(2*pi*(0:5)/5)), c(), 'linear') # test isempty
+interp1((0:5), sin(2*pi*(0:5)/5), c(), 'linear')    # test isempty
+interp1(t(0:5), t(sin(2*pi*(0:5)/5)), c(), 'cubic') # test isempty
+interp1((0:5), sin(2*pi*(0:5)/5), c(), 'cubic')    # test isempty
+interp1(t(0:5), t(sin(2*pi*(0:5)/5)), c(), 'spline') # test isempty
+interp1((0:5), sin(2*pi*(0:5)/5), c(), 'spline')    # test isempty
+# interp
 x2 <- chirp(seq(0, 2, by = 0.01), 2, 0.5, 10, 'quadratic') + sin(2*pi*seq(0, 2, by = 0.01)*0.4)
 interp(x2[seq(1, length(x2), by = 4)], 4, 4, 1)
 # kaiser
@@ -216,12 +232,20 @@ kaiserord(c(1200, 1500), c(1, 0), c(0.1, 0.1), 11025)
 kaiserord(c(1000, 1500), c(0, 1), c(0.1, 0.1), 11025)
 kaiserord(c(1000, 1200, 3000, 3500), c(0, 1, 0), 0.1, 11025)
 kaiserord(100 * c(10, 13, 15, 20, 30, 33, 35, 40), c(1, 0, 1, 0, 1), 0.05, 11025)
-# m2R
+# m2R signal:::m2R
+# Ma
+Ma(c(1, 2, 1)/3)
+# medfilt1
+medfilt1(sin(2*pi*seq(0, 1, len=100)*2.3) + 0.25*rlnorm(length(seq(0, 1, len=100)), 0.5))
+# MedianFilter
+MedianFilter(7)  
+# mkpp see pchip
+# ncauer
+signal:::ncauer(3, 40, 5)
 # pchip
-pchip(c(0:10), sin(2*pi*c(0:10)/5), seq(0, 11, length=500))
+pchip((0:10), sin(2*pi*(0:10)/5), seq(0, 11, length=500))
 pchip(c(0:1, 3:10), sin(2*pi*c(0:1, 3:10)/5), seq(0, 10, length=500))
-pchip(c(0:10), sin(2*pi*c(0:10)/5), seq(0, 10, length=500))
-
+pchip((0:10), sin(2*pi*(0:10)/5), seq(0, 10, length=500))
 m <- diff(cbind(sin(seq(0, pi, length=5)), cos(seq(0, pi, length=5)))) / (seq(0, pi, length=5)[2]-seq(0, pi, length=5)[1])
 b <- cbind(sin(seq(0, pi, length=5)), cos(seq(0, pi, length=5)))[1:4,]
 print(pp <- signal:::mkpp(seq(0, pi, length=5), cbind(as.vector(m), as.vector(b))))
@@ -231,11 +255,23 @@ poly(c(1, -1))
 poly(roots(1:3))
 poly(matrix(1:9, 3, 3))
 poly(c(1/0.9*exp(1i*pi*0.2), 0.9*exp(1i*pi*0.6)))   # grpdelay.Rd
-poly(c(0.9*exp(-1i*pi*0.6), 1/0.9*exp(-1i*pi*0.2))) # grpdelay.Rd
+poly(c(0.9*exp(-1i*pi*0.6), 1/0.9*exp(-1i*pi*0.2))) # grpdelay.Rd   
+# polyval
+polyval(c(1, 0, -2), 1:3)
+# postpad
+signal:::postpad(c(1,2,3), 4)
+signal:::postpad(c(1,2), 4)
+signal:::postpad(c(1,-2), 3)
+signal:::postpad(c(1,2), 3)
+# ppval see pchip
 # remez
 remez(15, c(0, 0.3, 0.4, 1), c(1, 1, 0, 0))
 # resample
 resample(sin(2*pi*c(0:10)/5), c(0:10)[2], seq(0, 10.95, by=0.05)[2])
+# roots
+roots(1:3)
+poly(roots(1:3))   
+roots(1:3, method="eigen")
 # sftrans
 # sgolay
 t <- t(c(0:2^12-1))/(2^12)
@@ -255,12 +291,16 @@ sgolayfilt(x, sgolay(8, 41, 3, dt)) # test ??
 # sgolayfilt
 sgolayfilt(c(rep(0, 15), rep(10, 10), rep(0, 15)))
 sgolayfilt(cos(2*pi*seq(0, 1, by=0.01)*3), 3, 5)  # demo
+# sinc
+signal:::sinc(c(1,2,3))
 # specgram
 unclass(specgram(chirp(seq(0, 2, by = 1/1000), 0, 2, 500)))  # test
 unclass(specgram(chirp(seq(-2, 15, by = 0.001), 400, 10, 100, 'quadratic')))
 unclass(specgram(chirp(seq(0, 5, by = 1/8000), 200, 2, 500, "logarithmic"), Fs = 8000))
 unclass(specgram(chirp(seq(0, 2, by=0.001), 0, 2, 500), 2^ceiling(log2(abs(ceiling(100*1000/1000)))), 1000, ceiling(100*1000/1000), ceiling(100*1000/1000)-ceiling(20*1000/1000)))
-
+# spencer
+set.seed(1)
+spencer(sin(2*pi*seq(0, 1, len = 100)*2.3) + 0.25*rnorm(length(seq(0, 1, len = 100))))
 # triang
 triang(1)   # test
 triang(2)   # test
@@ -269,4 +309,6 @@ triang(4)   # test
 triang(51)
 # unwrap
 unwrap(c(seq(0, 2*pi, length=500), seq(0, 2*pi, length=500)))
+# wav
+# Zpg
 # zplane
