@@ -1,15 +1,15 @@
 library("signal")
 x1 <- 1000/(10000/2)
 x2 <- 1200/(10000/2)
-x3 <- seq(0, 2, by = 0.01)
-x4 <- seq(0, 1, len = 100)
+x3 <- seq(0, 2, by=0.01)
+x4 <- seq(0, 1, len=100)
 x5 <- c(0, 0.3, 0.3, 0.6, 0.6, 1)
 x6 <- c(0, 0, 1, 1/2, 0, 0)
 x7 <- seq(0, 2/3-0.0001, length=200) 
 x8 <- seq(0,2/3-0.0001,length=200)
 x9 <- sin(2*pi*(0:10)/5)
 x10 <- seq(0,11,length=500)
-x12 <- c(0, 4, 5, 6, 8, 10) 
+x12 <- c(0,4,5,6,8,10) 
 x13 <- sin(2*pi*seq(0, 10, length=500)/5) 
 x14 <- c(0.09026579, 0.00000000, 0.27079736, 0.00000000, 0.27079736, 0.00000000, 0.09026579)
 x15 <- c(1.000000e+00, 1.110223e-16, -6.905559e-01, 4.440892e-16, 8.018905e-01, -1.665335e-16, -3.892083e-01)
@@ -22,7 +22,6 @@ x21 <- seq(1, 4, by=2)
 x22 <- sin(2*pi*x4*2.3)
 x23 <- 2*pi*50   
 x27 <- seq(0, 2, by=0.001)
-
 # an
 120*an(30) + 125*an(-160)
 # Arma
@@ -32,6 +31,9 @@ bartlett(1)
 bartlett(2)
 bartlett(51)
 # bilinear
+bilinear(Sz=signal:::ncauer(3, 40, 5), 2)
+bilinear(ellip(ellipord(x1, x2, 0.5, 29)), 2)
+bilinear(butter(4, 0.1, type="pass", plane="z"), 2)
 # blackman
 blackman(1)
 blackman(2)
@@ -79,6 +81,7 @@ signal:::ellipke(c(0.0, 0.01, 0.1, 0.5, 0.9, 0.99, 1.0)) # test: last value ??
 # ellipord
 ellipord(c(0.1, 0.2), 0.4, 1, 90)
 ellipord(x1, x2, 0.5, 29)
+# FilterOfOrder
 # fftfilt
 set.seed(1)
 fftfilt(rep(1, 10)/10, x22 + 0.25*rnorm(length(x4)))   # example with random numbers, set.seed
@@ -261,7 +264,8 @@ kaiserord(c(1000,1200,3000,3500), c(0,1,0), 0.1, 11025)
 kaiserord(100 * c(10,13,15,20,30,33,35,40), c(1,0,1,0,1), 0.05, 11025)
 # logseq
 signal:::logseq(1, 100, n=500)
-# m2R signal:::m2R
+# m2R
+# converter
 # Ma
 Ma(c(1,2,1)/3)
 # medfilt1
@@ -304,8 +308,11 @@ poly(roots(1:3))
 roots(1:3, method="eigen")
 # sftrans
 sftrans(signal:::ncauer(3, 40, 5), 0.1, FALSE) 
-sftrans(signal:::ncauer(3, 40, 5), 0.1, TRUE) 
-## missing: example of Default S3 method
+sftrans(signal:::ncauer(3, 40, 5), 0.1, TRUE)
+sftrans(bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$zero, bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$pole, 
+bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$gain, 2, stop = FALSE)
+sftrans(ellip(ellipord(x1, x2, 0.5, 29)), 0.1)                                                         
+sftrans(butter(4, 0.1, type="pass", plane="z"), 0.1) 
 # sgolay
 x24 <- t(c(0:2^12-1))/(2^12)
 x25 <- (t(c(0:2^12-1))/(2^12))[2]-(t(c(0:2^12-1))/(2^12))[1]
@@ -347,3 +354,4 @@ data(wav)
 str(wav)
 # Zpg
 # zplane
+# no values returned
