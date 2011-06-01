@@ -97,22 +97,34 @@ fir1(40, 0.3)
 fir1(10, c(0.3, 0.5), "stop")
 fir1(10, c(0.3, 0.5), "pass")
 # fir1(15, c(0.2, 0.5), "stop")   # error
+# ->  fir1(15, c(0.2, 0.5), "stop", hamming(16))
 # fir1(15, c(0.2, 0.5), "stop", 'noscale') # error
+# -> fir1(15, c(0.2, 0.5), "stop", hamming(16), 'noscale')
+# fir1(2, 0.5, 'low',  @hanning, 'scale') # error 
+# -> fir1(2, 0.5, 'low', hanning(3), 'scale') 
 # fir1(2, 0.5, 'low', "hanning", 'scale') # error
-# fir1(2, 0.5, 'low', "hanning", 'scale') # error
-fir1(2, 0.5, 'low', hamming(3), 'scale') # ??
-# fir1(10, 0.5, 'noscale') # error
+# -> fir1(2, 0.5, 'low', hanning(3), 'scale')
+fir1(2, 0.5, 'low', hamming(3), 'scale')
+fir1(10, 0.5, scale='noscale')
 # fir1(10, 0.5, 'low', 'hamming', 'noscale') # error
+# -> fir1(10, 0.5, 'low', hamming(11), 'noscale')
 fir1(10, 0.5, 'high')
 # fir1(10, 0.5, 'high', 'hamming', 'scale') # error
+# ->  fir1(10, 0.5, 'high', hamming(11), 'scale')
 # fir1(10, 0.5, 'boxcar') # error
+# -> fir1(10, 0.5, window=boxcar(11))
 # fir1(10, 0.5, 'low', 'boxcar', 'scale') # error
+# -> fir1(10, 0.5, type='low', window=boxcar(11), scale='scale')
 # fir1(10, 0.5, 'hanning', 'scale') # error
-# fir1(10, 0.5, 'scale', 'hanning', 'low') # error
-# fir1(10, 0.5, 'hanning', 'noscale') # error
+# -> fir1(10, 0.5, window=hanning(11), scale='scale')
+# fir1(10, 0.5, 'scale', 'hanning', 'low') # error 
+# -> fir1(10, 0.5, scale='scale', window=hanning(11), type='low')
+# fir1(10, 0.5, 'hanning', 'noscale') # error 
+# -> fir1(10, 0.5, window=hanning(11), scale='noscale')
 # fir1(10, 0.5, 'noscale', 'hanning', 'low') # error
-# fir1(10, 0.5, 'boxcar', c()) # error
-# fir1(10, 0.5, 'boxcar') # error
+# -> fir1(10, 0.5, scale='noscale', window=hanning(11), type='low')
+# fir1(10, 0.5, 'boxcar', c()) # error 
+# ->  fir1(10, 0.5, window=boxcar(11), c())
 fir1(40, 2*(0.3*8000/2)/8000)    # grpdelay.R
 # fir2
 fir2(100, x5, x6)
@@ -132,17 +144,17 @@ flattopwin(51, sym = 'periodic')
 signal:::fractdiff(c(1,2,3), 1)
 signal:::fractdiff(c(1,2,3), 0)
 signal:::fractdiff(c(1,2,3), -0.5)
-#signal:::fractdiff(c(1,2,3),-2) ??
-#signal:::fractdiff(1,1) ??
+#signal:::fractdiff(c(1,2,3),-2)
+#signal:::fractdiff(1,1)
 # freqs
 unclass(freqs(c(1,2), c(1,1), seq(0, 4, length=128)))
 # freqz
 unclass(freqz(c(0.292893218813452, 0.585786437626905, 0.292893218813452), c(1, 0, 0.171572875253810), 32)) # test ??
-unclass(freqz(c(1,1,1)/3, 1, 32, 'whole', plot=F)) # test ??
-unclass(freqz(c(1,1,1)/3, 1, 16, 'half')) # test ??
-unclass(freqz(c(1,1,1)/3, 1, 16, 320)) # test ??
-unclass(freqz(c(1,1,1)/3, 1, (0:15)*10, 320)) # test: h, last value f ??
-unclass(freqz(c(1,1,1)/3, 1, 32, 'whole', 320)) # test h, last value f ??
+unclass(freqz(c(1,1,1)/3, 1, 32, 'whole', plot=F)) # test
+unclass(freqz(c(1,1,1)/3, 1, 16, 'half')) # test
+unclass(freqz(c(1,1,1)/3, 1, 16, 320)) # test, values f ??
+unclass(freqz(c(1,1,1)/3, 1, (0:15)*10, 320)) # test, values h ??
+unclass(freqz(c(1,1,1)/3, 1, 32, 'whole', 320)) # test
 unclass(freqz(c(1, 0, -1), c(1, 0, 0, 0, 0.25)))
 unclass(freqz(butter(5, 0.1)))  # cheby1.Rd
 unclass(freqz(cheby1(5, 3, 0.1)))   # cheby1.Rd
@@ -167,8 +179,8 @@ gausswin(2, 5)
 # grpdelay
 unclass(grpdelay(c(1, 0.9), 1, 512, 'whole', 1))
 unclass(grpdelay(poly(c(1/0.9*exp(1i*pi*0.2), 0.9*exp(1i*pi*0.6))), poly(c(0.9*exp(-1i*pi*0.6), 1/0.9*exp(-1i*pi*0.2))), 512, 'whole', 1))
-unclass(grpdelay(c(0,1))) # test
-unclass(grpdelay(c(0,1), 1)) # test
+unclass(grpdelay(c(0,1)))
+unclass(grpdelay(c(0,1), 1)) 
 unclass(grpdelay(c(0,1), 1, 4)) # test ??
 unclass(grpdelay(c(0,1), 1, 4, 'whole')) # test ??
 unclass(grpdelay(c(0,1), 1, 4, 0.5)) # test ??
@@ -224,12 +236,12 @@ interp1(0:10, x9, x20, 'spline')
 interp1(0:10, x9, x20, 'cubic')
 interp1(0:10, x9, x20, 'nearest')
 interp1(0:5, x18, c(min(0:5)-1, max(0:5)+1))    # test
-interp1(0:5, x18, 0:5, 'nearest') # test, last value??
+interp1(0:5, x18, 0:5, 'nearest') # test
 interp1(0:5, x18, c(-1, max(0:5)+1)) # test
-interp1(0:5, x18, 0:5, 'linear')   # test, last value?
-interp1(0:5, x18, 0:5, 'cubic') # test, last value?
-interp1(0:5, x18, 0:5, 'spline')   # test, last value?
-interp1(1:5, seq(3, 11, by=2), c(0,6), 'linear', 'extrap') # test, last value?
+interp1(0:5, x18, 0:5, 'linear')   # test
+interp1(0:5, x18, 0:5, 'cubic') # test
+interp1(0:5, x18, 0:5, 'spline')   # test
+interp1(1:5, seq(3, 11, by=2), c(0,6), 'linear', 'extrap') # test
 interp1(0:5, x18, c(-1, max(0:5)+1), 'linear', 5)   # test
 interp1(1:2, 1:2, 1.4, 'nearest')  # test
 interp1(1:4, 1:4, 1.4, 'cubic')    # test
@@ -238,8 +250,7 @@ interp1(x21, x21, 1.4, 'nearest')   # test
 interp1(seq(1, 8, by=2), seq(1, 8, by=2), 1.4, 'cubic') # test
 interp1(seq(1, 6, by=2), seq(1, 6, by=2), 1.4, 'spline')    # test
 interp1(x21, x21, c(0, 1, 1.4, 3, 4), 'linear') # test ??
-# interp1(1:2, 1:2, 1.4, 'linear') # error
-interp1(x21, x21, c(0, 1, 1.4, 3, 4), 'linear') # test ??
+interp1(1:2, 1:2, 1.4, 'linear') # test ??
 interp1(t(0:5), t(x18), c(), 'nearest') # test isempty
 interp1(0:5, x18, c(), 'nearest')    # test isempty
 interp1(t(0:5), t(x18), c(), 'linear') # test isempty
@@ -264,8 +275,6 @@ kaiserord(c(1000,1200,3000,3500), c(0,1,0), 0.1, 11025)
 kaiserord(100 * c(10,13,15,20,30,33,35,40), c(1,0,1,0,1), 0.05, 11025)
 # logseq
 signal:::logseq(1, 100, n=500)
-# m2R
-# converter
 # Ma
 Ma(c(1,2,1)/3)
 # medfilt1
@@ -314,8 +323,8 @@ bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$gain, 2, stop = FALSE)
 sftrans(ellip(ellipord(x1, x2, 0.5, 29)), 0.1)                                                         
 sftrans(butter(4, 0.1, type="pass", plane="z"), 0.1) 
 # sgolay
-x24 <- t(c(0:2^12-1))/(2^12)
-x25 <- (t(c(0:2^12-1))/(2^12))[2]-(t(c(0:2^12-1))/(2^12))[1]
+x24 <- t(c(0:(2^12-1)))/(2^12)
+x25 <- x24[2]-x24[1]
 d <- 1+exp(-3*(x24-0.5))
 dd <- -3*exp(-3*(x24-0.5))
 d2d <- 9*exp(-3*(x24-0.5))
