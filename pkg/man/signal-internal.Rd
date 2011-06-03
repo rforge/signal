@@ -30,7 +30,7 @@
   ppval(pp, xi) # used by \code{pchip}
   ## Evaluate piece-wise polynomial pp and points xi.
   ncauer(Rp, Rs, n) # used by \code{ellip}
-  ellipke(m) # used by \code{ellip}
+  ellipke(m, Nmax)  # used by \code{ellip}
   cheb(n, x) # nth-order Chebyshev polynomial calculated at x
              # used by \code{chebwin}
 }
