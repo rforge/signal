@@ -2,7 +2,6 @@
 \alias{ellipke}
 \alias{fractdiff}
 \alias{logseq}
-\alias{m2R}
 \alias{ncauer}
 \alias{cheb}
 \alias{postpad}
@@ -34,9 +33,6 @@
   ellipke(m) # used by \code{ellip}
   cheb(n, x) # nth-order Chebyshev polynomial calculated at x
              # used by \code{chebwin}
-  
-# UTILITIES
-  m2R(mfile, Rfile = gsub("\\.m$", ".R", mfile)) # crude matlab to R converter
 }
 }
 \keyword{ math }
