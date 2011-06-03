@@ -217,7 +217,12 @@ interp1 <- function(x, y, xi,
 
   yi[range] <- switch(method,
     "linear" = {
-        idx <- lookup(x[2:(nx-1)], xi) + 1
+        if(nx < 2 || ny < 2)
+            stop("interp1: table too short")
+        if(nx == 2)
+            idx <- rep(1, length(xi))
+        else    
+            idx <- lookup(x[2:(nx-1)], xi) + 1
                     # 2:(n-1) so that anything beyond the ends
                     # gets dumped into an interval
         ## use the endpoints of the interval to define a line

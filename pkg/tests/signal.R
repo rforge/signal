@@ -236,8 +236,8 @@ interp1(1:3, 1:3, 1.4, 'spline')   # test
 interp1(x21, x21, 1.4, 'nearest')   # test
 interp1(seq(1, 8, by=2), seq(1, 8, by=2), 1.4, 'cubic') # test
 interp1(seq(1, 6, by=2), seq(1, 6, by=2), 1.4, 'spline')    # test
-interp1(x21, x21, c(0, 1, 1.4, 3, 4), 'linear') # test ??
-interp1(1:2, 1:2, 1.4, 'linear') # test ??
+interp1(x21, x21, c(0, 1, 1.4, 3, 4), 'linear') # test
+interp1(1:2, 1:2, 1.4, 'linear') # test
 interp1(t(0:5), t(x18), c(), 'nearest') # test isempty
 interp1(0:5, x18, c(), 'nearest')    # test isempty
 interp1(t(0:5), t(x18), c(), 'linear') # test isempty
