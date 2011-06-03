@@ -131,13 +131,13 @@ flattopwin(51, sym = 'periodic')
 signal:::fractdiff(c(1,2,3), 1)
 signal:::fractdiff(c(1,2,3), 0)
 signal:::fractdiff(c(1,2,3), -0.5)
-#signal:::fractdiff(c(1,2,3),-2)
-#signal:::fractdiff(1,1)
+try(signal:::fractdiff(c(1,2,3), -2))
+try(signal:::fractdiff(1,1))
 # freqs
 unclass(freqs(c(1,2), c(1,1), seq(0, 4, length=128)))
 # freqz
 unclass(freqz(c(0.292893218813452, 0.585786437626905, 0.292893218813452), c(1, 0, 0.171572875253810), 32)) # test ??
-unclass(freqz(c(1,1,1)/3, 1, 32, 'whole', plot=F)) # test
+unclass(freqz(c(1,1,1)/3, 1, 32, 'whole', plot=FALSE)) # test
 unclass(freqz(c(1,1,1)/3, 1, 16, 'half')) # test
 unclass(freqz(c(1,1,1)/3, 1, 16, 320)) # test, values f ??
 unclass(freqz(c(1,1,1)/3, 1, (0:15)*10, 320)) # test, values h ??
