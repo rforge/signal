@@ -77,7 +77,7 @@ decimate(chirp(x3, 2, 0.5, 10, 'quadratic') + sin(2*pi*x3*0.4), 4)
 ellip(5, 3, 40, 0.1)
 ellip(ellipord(x1, x2, 0.5, 29))    # ellipord.Rd
 # ellipke
-signal:::ellipke(c(0.0, 0.01, 0.1, 0.5, 0.9, 0.99, 1.0)) # test: last value ??
+signal:::ellipke(c(0.0, 0.01, 0.1, 0.5, 0.9, 0.99, 1.0)) # test
 # ellipord
 ellipord(c(0.1, 0.2), 0.4, 1, 90)
 ellipord(x1, x2, 0.5, 29)
@@ -96,35 +96,22 @@ filtfilt(butter(3, 0.1), x22 + 0.25*rnorm(length(x4))) # example with random num
 fir1(40, 0.3)
 fir1(10, c(0.3, 0.5), "stop")
 fir1(10, c(0.3, 0.5), "pass")
-# fir1(15, c(0.2, 0.5), "stop")   # error
-# ->  fir1(15, c(0.2, 0.5), "stop", hamming(16))
-# fir1(15, c(0.2, 0.5), "stop", 'noscale') # error
-# -> fir1(15, c(0.2, 0.5), "stop", hamming(16), 'noscale')
-# fir1(2, 0.5, 'low',  @hanning, 'scale') # error 
-# -> fir1(2, 0.5, 'low', hanning(3), 'scale') 
-# fir1(2, 0.5, 'low', "hanning", 'scale') # error
-# -> fir1(2, 0.5, 'low', hanning(3), 'scale')
+fir1(15, c(0.2, 0.5), "stop")
+fir1(15, c(0.2, 0.5), "stop", scale = 'noscale')
+fir1(2, 0.5, 'low',  hanning, scale = TRUE)
+fir1(2, 0.5, 'low', "hanning", 'scale')
 fir1(2, 0.5, 'low', hamming(3), 'scale')
 fir1(10, 0.5, scale='noscale')
-# fir1(10, 0.5, 'low', 'hamming', 'noscale') # error
-# -> fir1(10, 0.5, 'low', hamming(11), 'noscale')
+fir1(10, 0.5, 'low', 'hamming', 'noscale')
 fir1(10, 0.5, 'high')
-# fir1(10, 0.5, 'high', 'hamming', 'scale') # error
-# ->  fir1(10, 0.5, 'high', hamming(11), 'scale')
-# fir1(10, 0.5, 'boxcar') # error
-# -> fir1(10, 0.5, window=boxcar(11))
-# fir1(10, 0.5, 'low', 'boxcar', 'scale') # error
-# -> fir1(10, 0.5, type='low', window=boxcar(11), scale='scale')
-# fir1(10, 0.5, 'hanning', 'scale') # error
-# -> fir1(10, 0.5, window=hanning(11), scale='scale')
-# fir1(10, 0.5, 'scale', 'hanning', 'low') # error 
-# -> fir1(10, 0.5, scale='scale', window=hanning(11), type='low')
-# fir1(10, 0.5, 'hanning', 'noscale') # error 
-# -> fir1(10, 0.5, window=hanning(11), scale='noscale')
-# fir1(10, 0.5, 'noscale', 'hanning', 'low') # error
-# -> fir1(10, 0.5, scale='noscale', window=hanning(11), type='low')
-# fir1(10, 0.5, 'boxcar', c()) # error 
-# ->  fir1(10, 0.5, window=boxcar(11), c())
+fir1(10, 0.5, 'high', 'hamming', 'scale')
+fir1(10, 0.5, window = 'boxcar')
+fir1(10, 0.5, 'low', 'boxcar', 'scale')
+fir1(10, 0.5, window='hanning', scale='scale')
+fir1(10, 0.5, scale='scale', window='hanning', type='low')
+fir1(10, 0.5, window='hanning', scale='noscale')
+fir1(10, 0.5, scale='noscale', window='hanning', 'low')
+fir1(10, 0.5, window=boxcar(11), c())
 fir1(40, 2*(0.3*8000/2)/8000)    # grpdelay.R
 # fir2
 fir2(100, x5, x6)
