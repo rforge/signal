@@ -22,10 +22,12 @@
 
 \method{grpdelay}{Zpg}(filt, \ldots)
 
-\method{plot}{grpdelay}(x, \ldots)
+\method{plot}{grpdelay}(x, xlab = if(x$HzFlag) 'Hz' else 'radian/sample', 
+    ylab = 'Group delay (samples)', type = "l", \ldots)
 
 \method{print}{grpdelay}(x, \ldots)
 }
+
 \arguments{
   \item{filt}{ for the default case, the moving-average coefficients of
     an ARMA model or filter. Generically, \code{filt}
@@ -38,6 +40,8 @@
   \item{Fs}{ sampling frequency in Hz. If not specified, the frequencies
     are in radians. }
   \item{x}{ object to be plotted. }
+  \item{xlab,ylab,type}{as in \code{\link[graphics]{plot}}, but with more 
+    sensible defaults.}
   \item{\ldots}{ for methods of \code{grpdelay}, arguments are passed to
     the default method. For \code{plot.grpdelay}, additional arguments
     are passed through to \code{plot}. }
@@ -80,6 +84,8 @@ inside loops and function calls, so explicit calls to \code{print} or
 # Two Zeros and Two Poles
 b <- poly(c(1/0.9*exp(1i*pi*0.2), 0.9*exp(1i*pi*0.6)))
 a <- poly(c(0.9*exp(-1i*pi*0.6), 1/0.9*exp(-1i*pi*0.2)))
-grpdelay(b, a, 512, whole = TRUE, Fs = 1)
+gpd <- grpdelay(b, a, 512, whole = TRUE, Fs = 1)
+print(gpd)
+plot(gpd)
 }
 \keyword{ math }
