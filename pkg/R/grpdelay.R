@@ -92,7 +92,7 @@ grpdelay <- function(filt, ...) UseMethod("grpdelay")
 
 print.grpdelay <- function(x, ...){
     cat("- Group delay (gd) calculated at", x$ns, "points.\n")
-    cat("- Frequencies (w) given in", if(HzFlag) "*Hz*." else "*radians*.", "\n")
+    cat("- Frequencies (w) given in", if(x$HzFlag) "*Hz*." else "*radians*.", "\n")
     temp <- data.frame(do.call("cbind", x[c("gd", "w")]))
     if(nrow(temp) > 8L){
         print(head(temp, n=4L), row.names=FALSE, ...)
