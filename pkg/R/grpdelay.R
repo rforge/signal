@@ -90,12 +90,21 @@
 
 grpdelay <- function(filt, ...) UseMethod("grpdelay")
 
-print.grpdelay <- plot.grpdelay <- function(x, ...) {
-  if (x$HzFlag)
-    funits = 'Hz'
-  else
-    funits = 'radian/sample'
-  plot(x$w[1:x$ns], x$gd[1:x$ns], xlab = funits, ylab = 'Group delay (samples)', type = "l")
+print.grpdelay <- function(x, ...){
+    cat("- Group delay (gd) calculated at", x$ns, "points.\n")
+    cat("- Frequencies (w) given in", if(HzFlag) "*Hz*." else "*radians*.", "\n")
+    temp <- data.frame(do.call("cbind", x[c("gd", "w")]))
+    if(nrow(temp) > 8L){
+        print(head(temp, n=4L), row.names=FALSE, ...)
+        cat(" .......  .......\n")
+    } else print(temp, row.names=FALSE, ...)
+    invisible(x)
+}
+
+plot.grpdelay <- function(x, xlab = if(x$HzFlag) 'Hz' else 'radian/sample', 
+    ylab = 'Group delay (samples)', type = "l", ...){
+  plot(x$w[1:x$ns], x$gd[1:x$ns], 
+    xlab = xlab, ylab = ylab, type = type, ...)
 }
 
 grpdelay.Arma <- function(filt, ...) # IIR
@@ -108,60 +117,60 @@ grpdelay.Zpg <- function(filt, ...) # Zero-pole-gain ARMA
   grpdelay(as.Arma(filt), ...)
 
 grpdelay.default <- function(filt, a = 1, n = 512, whole = FALSE, Fs = NULL, ...)   {
-  nfft = n
-  b = filt
+  nfft <- n
+  b <- filt
   if (whole == "whole" || whole) {
-    whole = TRUE
-    nfft = 2*nfft
+    whole <- TRUE
   } else {
-    whole = FALSE
+    whole <- FALSE
+    nfft <- 2*nfft
   }
   if (is.null(Fs)) {
-    HzFlag = FALSE
-    Fs = 1
+    HzFlag <- FALSE
+    Fs <- 1
   } else {
-    HzFlag = TRUE
+    HzFlag <- TRUE
   }    
   
-  w = Fs * (0:(nfft-1)) / nfft
+  w <- Fs * (0:(nfft-1)) / nfft
   if (!HzFlag)
-    w = w * 2 * pi
+    w <- w * 2 * pi
 
-  oa = length(a)-1             # order of a(z)
+  oa <- length(a)-1             # order of a(z)
   if (oa < 0) {
-    a = 1
-    oa = 0
+    a <- 1
+    oa <- 0
   }
-  ob = length(b)-1             # order of b(z)
+  ob <- length(b)-1             # order of b(z)
   if (ob < 0) {
-    b = 1
-    ob = 0
+    b <- 1
+    ob <- 0
   }                         
-  oc = oa + ob                 # order of c(z)
+  oc <- oa + ob                 # order of c(z)
   
-  c = conv(b, rev(Conj(a)))       # c(z) = b(z)*conj(a)(1/z)*z^(-oa)
-#  c = conv(b, rev(a))       # c(z) = b(z)*conj(a)(1/z)*z^(-oa)
-  cr = c * (0:oc)                 # cr(z) = derivative of c wrt 1/z 
-  num = fft(postpad(cr, nfft))
-  den = fft(postpad(c, nfft))
-#  minmag = 10*eps
-#  polebins = which(abs(den) < minmag)
-  polebins = which(abs(den) == 0)
+  c <- conv(b, rev(Conj(a)))       # c(z) <- b(z)*conj(a)(1/z)*z^(-oa)
+#  c <- conv(b, rev(a))       # c(z) <- b(z)*conj(a)(1/z)*z^(-oa)
+  cr <- c * (0:oc)                 # cr(z) <- derivative of c wrt 1/z 
+  num <- fft(postpad(cr, nfft))
+  den <- fft(postpad(c, nfft))
+#  minmag <- 10*eps
+#  polebins <- which(abs(den) < minmag)
+  polebins <- which(abs(den) == 0)
   if (any(polebins))
     warning('grpdelay: setting group delay to 0 at singularity')
-  num[polebins] = 0
-  num[polebins] = 1
+  num[polebins] <- 0
+  num[polebins] <- 1
 
-  gd = Re(num / den) - oa
+  gd <- Re(num / den) - oa
 
   if (!whole) {
-    ns = nfft/2     # Matlab convention ... should be nfft/2 + 1
-    gd = gd[1:ns]
-    w = w[1:ns]
+    ns <- nfft/2     # Matlab convention ... should be nfft/2 + 1
+    gd <- gd[1:ns]
+    w <- w[1:ns]
   } else {
-    ns = nfft # used in plot below
+    ns <- nfft # used in plot below
   } 
-  res = list(gd = gd, w = w, ns = ns, HzFlag = HzFlag)
+  res <- list(gd = gd, w = w, ns = ns, HzFlag = HzFlag)
   class(res) = "grpdelay"
   res
 } 

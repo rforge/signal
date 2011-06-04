@@ -136,11 +136,11 @@ try(signal:::fractdiff(1,1))
 # freqs
 unclass(freqs(c(1,2), c(1,1), seq(0, 4, length=128)))
 # freqz
-unclass(freqz(c(0.292893218813452, 0.585786437626905, 0.292893218813452), c(1, 0, 0.171572875253810), 32)) # test ??
+unclass(freqz(c(0.292893218813452, 0.585786437626905, 0.292893218813452), c(1, 0, 0.171572875253810), 32)) # test
 unclass(freqz(c(1,1,1)/3, 1, 32, 'whole', plot=FALSE)) # test
 unclass(freqz(c(1,1,1)/3, 1, 16, 'half')) # test
-unclass(freqz(c(1,1,1)/3, 1, 16, 320)) # test, values f ??
-unclass(freqz(c(1,1,1)/3, 1, (0:15)*10, 320)) # test, values h ??
+unclass(freqz(c(1,1,1)/3, 1, 16, Fs = 320)) # test
+unclass(freqz(c(1,1,1)/3, 1, (0:15)*10, Fs = 320)) # test
 unclass(freqz(c(1,1,1)/3, 1, 32, 'whole', 320)) # test
 unclass(freqz(c(1, 0, -1), c(1, 0, 0, 0, 0.25)))
 unclass(freqz(butter(5, 0.1)))  # cheby1.Rd
@@ -168,17 +168,17 @@ unclass(grpdelay(c(1, 0.9), 1, 512, 'whole', 1))
 unclass(grpdelay(poly(c(1/0.9*exp(1i*pi*0.2), 0.9*exp(1i*pi*0.6))), poly(c(0.9*exp(-1i*pi*0.6), 1/0.9*exp(-1i*pi*0.2))), 512, 'whole', 1))
 unclass(grpdelay(c(0,1)))
 unclass(grpdelay(c(0,1), 1)) 
-unclass(grpdelay(c(0,1), 1, 4)) # test ??
-unclass(grpdelay(c(0,1), 1, 4, 'whole')) # test ??
-unclass(grpdelay(c(0,1), 1, 4, 0.5)) # test ??
-unclass(grpdelay(c(0,1), 1, 4, 'whole', 1)) # test ??
-unclass(grpdelay(c(1, -0.9i), c(), 4, TRUE, 1)) # test: ??
-unclass(grpdelay(1, c(1, 0.9), 4)) # test ??
-unclass(grpdelay(c(1,2), c(1, 0.5, 0.9), 4)) # test ??
-unclass(grpdelay(c(1,2), c(1, 0.5, 0.25), 4)) # test ??
-unclass(grpdelay(conv(c(1,2), c(0.25, 0.5, 1)), 1, 4)) # test ??
-unclass(grpdelay(x14, x15, 256, FALSE, 8000)) # test ??
-unclass(grpdelay(x14, x15, 512, TRUE, 8000)) # test ??
+unclass(grpdelay(c(0,1), 1, 4)) # test
+unclass(grpdelay(c(0,1), 1, 4, 'whole')) # test
+unclass(grpdelay(c(0,1), 1, 4, Fs = 0.5)) # test
+unclass(grpdelay(c(0,1), 1, 4, 'whole', 1)) # test
+unclass(grpdelay(c(1, -0.9i), 1, 4, TRUE, 1)) # test
+unclass(grpdelay(1, c(1, 0.9), 4)) # test
+unclass(grpdelay(c(1,2), c(1, 0.5, 0.9), 4)) # test
+unclass(grpdelay(c(1,2), c(1, 0.5, 0.25), 4)) # test
+unclass(grpdelay(conv(c(1,2), c(0.25, 0.5, 1)), 1, 4)) # test
+unclass(grpdelay(x14, x15, 256, FALSE, 8000)) # test
+unclass(grpdelay(x14, x15, 512, TRUE, 8000)) # test
 # hamming
 hamming(1)
 hamming(2)
@@ -310,7 +310,7 @@ bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$gain, 2, stop = FALSE)
 sftrans(ellip(ellipord(x1, x2, 0.5, 29)), 0.1)                                                         
 sftrans(butter(4, 0.1, type="pass", plane="z"), 0.1) 
 # sgolay
-x24 <- t(c(0:(2^12-1)))/(2^12)
+x24 <- t(0:(2^12-1))/(2^12)
 x25 <- x24[2]-x24[1]
 d <- 1+exp(-3*(x24-0.5))
 dd <- -3*exp(-3*(x24-0.5))
