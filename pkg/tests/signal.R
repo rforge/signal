@@ -72,7 +72,7 @@ conv(c(1,2,3), c(1,2))
 conv(c(1,2), c(1,2,3))
 conv(c(1,-2), c(1,2))
 # decimate
-decimate(chirp(x3, 2, 0.5, 10, 'quadratic') + sin(2*pi*x3*0.4), 4)
+decimate(chirp(x3, 2, 0.5, 10, 'quadratic') + sin(2*pi*x3*0.4), 4)  # ??
 # ellip
 ellip(5, 3, 40, 0.1)
 ellip(ellipord(x1, x2, 0.5, 29))    # ellipord.Rd
@@ -130,11 +130,11 @@ flattopwin(51, sym = 'periodic')
 # fractdiff
 signal:::fractdiff(c(1,2,3), 1)
 signal:::fractdiff(c(1,2,3), 0)
-signal:::fractdiff(c(1,2,3), -0.5)
+signal:::fractdiff(c(1,2,3), -0.5)  # ??
 try(signal:::fractdiff(c(1,2,3), -2))
 try(signal:::fractdiff(1,1))
 # freqs
-unclass(freqs(c(1,2), c(1,1), seq(0, 4, length=128)))
+unclass(freqs(c(1,2), c(1,1), seq(0, 4, length=128)))         
 # freqz
 unclass(freqz(c(0.292893218813452, 0.585786437626905, 0.292893218813452), c(1, 0, 0.171572875253810), 32)) # test
 unclass(freqz(c(1,1,1)/3, 1, 32, 'whole', plot=FALSE)) # test
@@ -248,7 +248,7 @@ interp1(t(0:5), t(x18), c(), 'spline') # test isempty
 interp1(0:5, x18, c(), 'spline')    # test isempty
 # interp
 x26 <- chirp(x3, 2, 0.5, 10, 'quadratic') + sin(2*pi*x3*0.4)
-interp(x26[seq(1, length(x2), by=4)], 4, 4, 1)
+interp(x26[seq(1, length(x2), by=4)], 4, 4, 1)  # ??
 # kaiser
 kaiser(2, 5)
 kaiser(2, 10)
@@ -283,7 +283,7 @@ signal:::ppval(pp, x19)
 # poly
 poly(c(1,-1))
 poly(roots(1:3))
-poly(matrix(1:9, 3, 3))
+poly(matrix(1:9, 3, 3))    # last value ??
 poly(c(1/0.9*exp(1i*pi*0.2), 0.9*exp(1i*pi*0.6)))   # grpdelay.Rd
 poly(c(0.9*exp(-1i*pi*0.6), 1/0.9*exp(-1i*pi*0.2))) # grpdelay.Rd
 # polyval
@@ -297,13 +297,13 @@ signal:::postpad(c(1,2), 3)
 # remez
 remez(15, c(0, 0.3, 0.4, 1), c(1,1,0,0))
 # resample
-resample(sin(2*pi*(0:10)/5), (0:10)[2], seq(0, 10.95, by=0.05)[2])
+resample(sin(2*pi*(0:10)/5), (0:10)[2], seq(0, 10.95, by=0.05)[2])      
 # roots
 roots(1:3)
 poly(roots(1:3))   
 roots(1:3, method="eigen")
 # sftrans
-sftrans(signal:::ncauer(3, 40, 5), 0.1, FALSE) 
+sftrans(signal:::ncauer(3, 40, 5), 0.1, FALSE)         
 sftrans(signal:::ncauer(3, 40, 5), 0.1, TRUE)
 sftrans(bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$zero, bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$pole, 
 bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$gain, 2, stop = FALSE)
@@ -344,7 +344,7 @@ triang(3)   # test
 triang(4)   # test
 triang(51)
 # unwrap
-unwrap(c(seq(0, 2*pi, length=500), seq(0, 2*pi, length=500)))
+unwrap(c(seq(0, 2*pi, length=500), seq(0, 2*pi, length=500)))   
 # wav
 data(wav)
 str(wav)
