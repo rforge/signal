@@ -12,9 +12,9 @@ transform to determine the frequency components at that slice.
 specgram(x, n = min(256, length(x)), Fs = 2, window = hanning(n),
          overlap = length(window)/2)
 
-\method{plot}{specgram}(x, \ldots)
+\method{plot}{specgram}(x, col = gray(0:512 / 512), xlab="time", ylab="frequency", \ldots)
 
-\method{print}{specgram}(x, \ldots)
+\method{print}{specgram}(x, col = gray(0:512 / 512), xlab="time", ylab="frequency", \ldots)
 }
 \arguments{
   \item{x}{ the vector of samples. }
@@ -24,8 +24,10 @@ specgram(x, n = min(256, length(x)), Fs = 2, window = hanning(n),
     \code{hanning(n)}. The window length for a hanning window can be
     specified instead. }
   \item{overlap}{ overlap with previous window, defaults to half the
-    window length. }
-  \item{\ldots}{ additional arguments (ignored). }
+    window length.}
+  \item{col}{color scale used for the underlying \code{\link[graphics]{image}} function.}
+  \item{xlab,ylab}{axis labels with sensible defaults.}
+  \item{\ldots}{ additional arguments passed to the underlying plot functions.}
 }
 \details{
 

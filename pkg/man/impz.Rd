@@ -16,9 +16,11 @@
 
 \method{impz}{Ma}(filt, \ldots)
 
-\method{plot}{impz}(x, \ldots)
+\method{plot}{impz}(x, xlab = "Time, msec", ylab = "", type = "l",
+    main = "Impulse response", \ldots)
 
-\method{print}{impz}(x, \ldots)
+\method{print}{impz}(x, xlab = "Time, msec", ylab = "", type = "l",
+    main = "Impulse response", \ldots)
 }
 \arguments{
   \item{filt}{ for the default case, the moving-average coefficients of
@@ -32,6 +34,8 @@
     the default method. For \code{plot.impz}, additional arguments are
     passed through to \code{plot}. }
   \item{x}{ object to be plotted. }
+  \item{xlab,ylab,main}{axis labels anmd main title with sensible defaults.}
+  \item{type}{as in \code{\link[graphics]{plot}}, uses lines to connect the points}
 }
 \details{
 When results of \code{impz} are printed, the impulse response will be
