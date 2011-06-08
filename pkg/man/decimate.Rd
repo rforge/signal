@@ -17,6 +17,8 @@ decimate(x, q, n = if (ftype == "iir") 8 else 30, ftype = "iir")
  By default, an order 8 Chebyshev type I
 filter is used or a 30-point FIR filter if \code{ftype} is \code{'fir'}.  Note
 that \code{q} must be an integer for this rate change method.
+
+Makes use of the \code{\link{filtfilt}} function with all its limitations.
 }
 \value{
   The decimated signal, an array of length \code{ceiling(length(x) / q)}.

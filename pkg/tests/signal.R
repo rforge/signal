@@ -71,7 +71,7 @@ conv(c(1,2,3), c(1,2))
 conv(c(1,2), c(1,2,3))
 conv(c(1,-2), c(1,2))
 # decimate
-decimate(chirp(x3, 2, 0.5, 10, 'quadratic') + sin(2*pi*x3*0.4), 4)  # ??
+decimate(chirp(x3, 2, 0.5, 10, 'quadratic') + sin(2*pi*x3*0.4), 4)
 # ellip
 ellip(5, 3, 40, 0.1)
 ellip(ellipord(x1, x2, 0.5, 29))    # ellipord.Rd
@@ -247,7 +247,8 @@ interp1(t(0:5), t(x18), c(), 'spline') # test isempty
 interp1(0:5, x18, c(), 'spline')    # test isempty
 # interp
 x26 <- chirp(x3, 2, 0.5, 10, 'quadratic') + sin(2*pi*x3*0.4)
-interp(x26[seq(1, length(x2), by=4)], 4, 4, 1)  # ??
+interp(x26[seq(1, length(x26), by=4)], 4, 4, 1) # ??
+interp(1, 4, 4, 1)  # ??
 # kaiser
 kaiser(2, 5)
 kaiser(2, 10)

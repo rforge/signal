@@ -42,7 +42,10 @@ fractdiff  <- function(x, d)  {
 
   if (d > -1) {
 
+    ## Matlab rem returns negative output for negative input...
+    sn <- d < 0
     d <- d %% 1
+    if(sn) d <- d - 1 
 
     if (d != 0) {
       n <- 0:N
