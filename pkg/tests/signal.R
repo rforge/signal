@@ -6,7 +6,6 @@ x4 <- seq(0, 1, len=100)
 x5 <- c(0, 0.3, 0.3, 0.6, 0.6, 1)
 x6 <- c(0, 0, 1, 1/2, 0, 0)
 x7 <- seq(0, 2/3-0.0001, length=200) 
-x8 <- seq(0,2/3-0.0001,length=200)
 x9 <- sin(2*pi*(0:10)/5)
 x10 <- seq(0,11,length=500)
 x12 <- c(0,4,5,6,8,10) 
@@ -31,9 +30,9 @@ bartlett(1)
 bartlett(2)
 bartlett(51)
 # bilinear
-bilinear(Sz=signal:::ncauer(3, 40, 5), 2)
-bilinear(ellip(ellipord(x1, x2, 0.5, 29)), 2)
-bilinear(butter(4, 0.1, type="pass", plane="z"), 2)
+bilinear(Sz=signal:::ncauer(3, 40, 5), 2)                #
+bilinear(ellip(ellipord(x1, x2, 0.5, 29)), 2)            #
+bilinear(butter(4, 0.1, type="pass", plane="z"), 2)      #
 # blackman
 blackman(1)
 blackman(2)
@@ -43,12 +42,12 @@ boxcar(2)
 boxcar(51)
 # butter
 butter(4, 0.1, type="pass", plane="z") 
-butter(buttord(x1, x2, 0.5, 29))    # buttord.Rd
+butter(buttord(x1, x2, 0.5, 29))    # buttord.Rd        #
 butter(5, 0.1)  # cheby1.Rd
 # buttord
 buttord(x1, x2, 0.5, 29)
 # cheb
-signal:::cheb(49, cosh(1/49 * acosh(1/10^(-5)))*cos((pi*0:49)/50))
+signal:::cheb(49, cosh(1/49 * acosh(1/10^(-5)))*cos((pi*0:49)/50))  #
 # cheb1ord
 cheb1ord(x1, x2, 0.5, 29)
 # chebwin
@@ -115,12 +114,12 @@ fir1(10, 0.5, window=boxcar(11), c())
 fir1(40, 2*(0.3*8000/2)/8000)    # grpdelay.R
 # fir2
 fir2(100, x5, x6)
-fir2(50, x5, x6, 512, 0)
+fir2(50, x5, x6, 512, 0)      # ??
 fir2(50, x5, x6, 512, 25.6)
 fir2(50, x5, x6, 512, 51.2)
 fir2(20, c(x7, 2/3, 1), c((1 - (x7/2/3)^2)^(-1/4), 0, 0))
-fir2(50, c(x7, 2/3, 1), c((1 - (x7/2/3)^2)^(-1/4), 0, 0))
-fir2(200, c(x7, 2/3, 1), c((1 - (x7/2/3)^2)^(-1/4), 0, 0))
+fir2(50, c(x7, 2/3, 1), c((1 - (x7/2/3)^2)^(-1/4), 0, 0))     
+fir2(200, c(x7, 2/3, 1), c((1 - (x7/2/3)^2)^(-1/4), 0, 0)) 
 # flattopwin
 flattopwin(1, sym = 'periodic')
 flattopwin(2, sym = 'symmetric')
@@ -134,7 +133,7 @@ signal:::fractdiff(c(1,2,3), -0.5)  # ??
 try(signal:::fractdiff(c(1,2,3), -2))
 try(signal:::fractdiff(1,1))
 # freqs
-unclass(freqs(c(1,2), c(1,1), seq(0, 4, length=128)))         
+unclass(freqs(c(1,2), c(1,1), seq(0, 4, length=128)))               ##
 # freqz
 unclass(freqz(c(0.292893218813452, 0.585786437626905, 0.292893218813452), c(1, 0, 0.171572875253810), 32)) # test
 unclass(freqz(c(1,1,1)/3, 1, 32, 'whole', plot=FALSE)) # test
@@ -156,9 +155,9 @@ unclass(freqz(fir2(100, x5, x6)))       # fir2.Rd
 unclass(freqz(fir2(50, x5, x6, 512, 0)))    # fir2.R
 unclass(freqz(fir2(50, x5, x6, 512, 25.6))) # fir2.R
 unclass(freqz(fir2(50, x5, x6, 512, 51.2))) # fir2.R
-unclass(freqz(fir2(20, c(x8, 2/3, 1), c((1 - (x8/2/3)^2)^(-1/4), 0, 0))))   # fir2.R
-unclass(freqz(fir2(50, c(x8, 2/3, 1), c((1 - (x8/2/3)^2)^(-1/4), 0, 0))))   # fir2.R
-unclass(freqz(fir2(200, c(x8, 2/3, 1), c((1 - (x8/2/3)^2)^(-1/4), 0, 0))))  # fir2.R
+unclass(freqz(fir2(20, c(x7, 2/3, 1), c((1 - (x7/2/3)^2)^(-1/4), 0, 0))))   # fir2.R
+unclass(freqz(fir2(50, c(x7, 2/3, 1), c((1 - (x7/2/3)^2)^(-1/4), 0, 0))))   # fir2.R
+unclass(freqz(fir2(200, c(x7, 2/3, 1), c((1 - (x7/2/3)^2)^(-1/4), 0, 0))))  # fir2.R
 # gausswin
 gausswin(51, 5)
 gausswin(2) 
@@ -191,11 +190,11 @@ hanning(5)
 hanning(51)
 # ifft
 ifft(fft(1:4))
-ifft(fft(signal:::postpad(c(1,2,3), 4)) * fft(signal:::postpad(c(1,2), 4)))
-ifft(fft(signal:::postpad(c(1,-2), 3)) * fft(signal:::postpad(c(1,2), 3)))
+ifft(fft(signal:::postpad(c(1,2,3), 4)) * fft(signal:::postpad(c(1,2), 4)))      
+ifft(fft(signal:::postpad(c(1,-2), 3)) * fft(signal:::postpad(c(1,2), 3)))      # second value?
 # impz
-unclass(impz(butter(5, 0.3)))
-unclass(impz(ellip(5, 0.5, 30, 0.3)))
+unclass(impz(butter(5, 0.3)))                                                  #
+unclass(impz(ellip(5, 0.5, 30, 0.3)))                                          #
 # interp1
 interp1(0:10, x9, x10, 'linear', extrap = TRUE)
 interp1(0:10, x9, x10, 'spline', extrap = TRUE)
@@ -266,7 +265,7 @@ signal:::logseq(1, 100, n=500)
 Ma(c(1,2,1)/3)
 # medfilt1
 set.seed(1)
-medfilt1(x22 + 0.25*rlnorm(length(x4), 0.5))
+medfilt1(x22 + 0.25*rlnorm(length(x4), 0.5))  #
 # MedianFilter
 MedianFilter(7)  
 # mkpp see pchip
@@ -295,15 +294,15 @@ signal:::postpad(c(1,-2), 3)
 signal:::postpad(c(1,2), 3)
 # ppval see pchip
 # remez
-remez(15, c(0, 0.3, 0.4, 1), c(1,1,0,0))
+remez(15, c(0, 0.3, 0.4, 1), c(1,1,0,0))        #
 # resample
-resample(sin(2*pi*(0:10)/5), (0:10)[2], seq(0, 10.95, by=0.05)[2])      
+resample(sin(2*pi*(0:10)/5), (0:10)[2], seq(0, 10.95, by=0.05)[2])                #
 # roots
 roots(1:3)
 poly(roots(1:3))   
-roots(1:3, method="eigen")
+roots(1:3, method="eigen")                     #
 # sftrans
-sftrans(signal:::ncauer(3, 40, 5), 0.1, FALSE)         
+sftrans(signal:::ncauer(3, 40, 5), 0.1, FALSE)       #
 sftrans(signal:::ncauer(3, 40, 5), 0.1, TRUE)
 sftrans(bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$zero, bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$pole, 
 bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$gain, 2, stop = FALSE)
@@ -336,7 +335,7 @@ unclass(specgram(chirp(seq(0, 5, by=1/8000), 200, 2, 500, "logarithmic"), Fs = 8
 unclass(specgram(chirp(x27, 0, 2, 500), 2^ceiling(log2(abs(ceiling(100)))), 1000, ceiling(100), ceiling(100)-ceiling(20)))
 # spencer
 set.seed(1)
-spencer(x22 + 0.25*rnorm(length(x4)))
+spencer(x22 + 0.25*rnorm(length(x4)))  #
 # triang
 triang(1)   # test
 triang(2)   # test
