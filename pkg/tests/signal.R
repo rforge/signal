@@ -30,9 +30,9 @@ bartlett(1)
 bartlett(2)
 bartlett(51)
 # bilinear
-bilinear(Sz=signal:::ncauer(3, 40, 5), 2)                #
-bilinear(ellip(ellipord(x1, x2, 0.5, 29)), 2)            #
-bilinear(butter(4, 0.1, type="pass", plane="z"), 2)      #
+bilinear(Sz=signal:::ncauer(3, 40, 5), 2)                
+bilinear(ellip(ellipord(x1, x2, 0.5, 29)), 2)            #??
+bilinear(butter(4, 0.1, type="pass", plane="z"), 2)      #??
 # blackman
 blackman(1)
 blackman(2)
@@ -42,12 +42,12 @@ boxcar(2)
 boxcar(51)
 # butter
 butter(4, 0.1, type="pass", plane="z") 
-butter(buttord(x1, x2, 0.5, 29))    # buttord.Rd        #
+butter(buttord(x1, x2, 0.5, 29))    # buttord.Rd
 butter(5, 0.1)  # cheby1.Rd
 # buttord
 buttord(x1, x2, 0.5, 29)
 # cheb
-signal:::cheb(49, cosh(1/49 * acosh(1/10^(-5)))*cos((pi*0:49)/50))  #
+signal:::cheb(49, cosh(1/49 * acosh(1/10^(-5)))*cos((pi*0:49)/50))  
 # cheb1ord
 cheb1ord(x1, x2, 0.5, 29)
 # chebwin
@@ -129,11 +129,11 @@ flattopwin(51, sym = 'periodic')
 # fractdiff
 signal:::fractdiff(c(1,2,3), 1)
 signal:::fractdiff(c(1,2,3), 0)
-signal:::fractdiff(c(1,2,3), -0.5)  # ??
+signal:::fractdiff(c(1,2,3), -0.5)  
 try(signal:::fractdiff(c(1,2,3), -2))
 try(signal:::fractdiff(1,1))
 # freqs
-unclass(freqs(c(1,2), c(1,1), seq(0, 4, length=128)))               ##
+unclass(freqs(c(1,2), c(1,1), seq(0, 4, length=128)))               
 # freqz
 unclass(freqz(c(0.292893218813452, 0.585786437626905, 0.292893218813452), c(1, 0, 0.171572875253810), 32)) # test
 unclass(freqz(c(1,1,1)/3, 1, 32, 'whole', plot=FALSE)) # test
@@ -191,10 +191,10 @@ hanning(51)
 # ifft
 ifft(fft(1:4))
 ifft(fft(signal:::postpad(c(1,2,3), 4)) * fft(signal:::postpad(c(1,2), 4)))      
-ifft(fft(signal:::postpad(c(1,-2), 3)) * fft(signal:::postpad(c(1,2), 3)))      # second value?
+ifft(fft(signal:::postpad(c(1,-2), 3)) * fft(signal:::postpad(c(1,2), 3)))      
 # impz
-unclass(impz(butter(5, 0.3)))                                                  #
-unclass(impz(ellip(5, 0.5, 30, 0.3)))                                          #
+unclass(impz(butter(5, 0.3)))                                                  
+unclass(impz(ellip(5, 0.5, 30, 0.3)))                                          
 # interp1
 interp1(0:10, x9, x10, 'linear', extrap = TRUE)
 interp1(0:10, x9, x10, 'spline', extrap = TRUE)
@@ -283,7 +283,7 @@ signal:::ppval(pp, x19)
 # poly
 poly(c(1,-1))
 poly(roots(1:3))
-poly(matrix(1:9, 3, 3))    # last value ??
+poly(matrix(1:9, 3, 3))    
 poly(c(1/0.9*exp(1i*pi*0.2), 0.9*exp(1i*pi*0.6)))   # grpdelay.Rd
 poly(c(0.9*exp(-1i*pi*0.6), 1/0.9*exp(-1i*pi*0.2))) # grpdelay.Rd
 # polyval
@@ -303,12 +303,12 @@ roots(1:3)
 poly(roots(1:3))   
 roots(1:3, method="eigen")                     #
 # sftrans
-sftrans(signal:::ncauer(3, 40, 5), 0.1, FALSE)       #
-sftrans(signal:::ncauer(3, 40, 5), 0.1, TRUE)
+sftrans(signal:::ncauer(3, 40, 5), 0.1, FALSE)       
+sftrans(signal:::ncauer(3, 40, 5), 0.1, TRUE)         
 sftrans(bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$zero, bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$pole, 
-bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$gain, 2, stop = FALSE)
-sftrans(ellip(ellipord(x1, x2, 0.5, 29)), 0.1)                                                         
-sftrans(butter(4, 0.1, type="pass", plane="z"), 0.1) 
+bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$gain, 2, stop = FALSE)        
+sftrans(ellip(ellipord(x1, x2, 0.5, 29)), 0.1)            #
+sftrans(butter(4, 0.1, type="pass", plane="z"), 0.1)     #
 # sgolay
 x24 <- t(0:(2^12-1))/(2^12)
 x25 <- x24[2]-x24[1]
