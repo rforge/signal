@@ -31,8 +31,8 @@ bartlett(2)
 bartlett(51)
 # bilinear
 bilinear(Sz=signal:::ncauer(3, 40, 5), 2)                
-bilinear(ellip(ellipord(x1, x2, 0.5, 29)), 2)            #??
-bilinear(butter(4, 0.1, type="pass", plane="z"), 2)      #??
+bilinear(ellip(ellipord(x1, x2, 0.5, 29)), 2) 
+bilinear(butter(4, 0.1, type="pass", plane="z"), 2)
 # blackman
 blackman(1)
 blackman(2)
@@ -247,8 +247,8 @@ interp1(t(0:5), t(x18), c(), 'spline') # test isempty
 interp1(0:5, x18, c(), 'spline')    # test isempty
 # interp
 x26 <- chirp(x3, 2, 0.5, 10, 'quadratic') + sin(2*pi*x3*0.4)
-interp(x26[seq(1, length(x26), by=4)], 4, 4, 1) # ??
-interp(1, 4, 4, 1)  # ??
+interp(x26[seq(1, length(x26), by=4)], 4, 4, 1)
+interp(1, 4, 4, 1)
 # kaiser
 kaiser(2, 5)
 kaiser(2, 10)
@@ -301,7 +301,7 @@ resample(sin(2*pi*(0:10)/5), (0:10)[2], seq(0, 10.95, by=0.05)[2])              
 # roots
 roots(1:3)
 poly(roots(1:3))   
-roots(1:3, method="eigen")                     #
+roots(1:3, method="eigen") 
 # sftrans
 sftrans(signal:::ncauer(3, 40, 5), 0.1, FALSE)       
 sftrans(signal:::ncauer(3, 40, 5), 0.1, TRUE)         
