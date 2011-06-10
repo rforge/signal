@@ -1,4 +1,4 @@
-17:26## Copyright (C) 2000 Paul Kienzle
+## Copyright (C) 2000 Paul Kienzle
 ##
 ## This program is free software; you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -98,8 +98,7 @@ fir2 <- function(n, f, m, grid_n = 512, ramp_n = grid_n/20, window = hamming(n+1
   }
   
   ## interpolate between grid points
-  grid = approx(f,m,seq(0, 1, length = grid_n+1))$y
-  # hold on; plot(seq(0,1,length=grid_n+1),grid,'-+g;grid;'); hold off; pause
+  grid = approx(f,m,seq(0, 1, length = grid_n+1), ties = "ordered")$y
 
   ## Transform frequency response into time response and
   ## center the response about n/2, truncating the excess
