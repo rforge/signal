@@ -10,8 +10,8 @@ x7 <- seq(0, 2/3-0.0001, length=200)
 
 x5 = [0, 0.3, 0.3, 0.6, 0.6, 1]
 x6 = [0, 0, 1, 1/2, 0, 0]
-x7 = 0:(((2/3-0.0001)-0)/199):(2/3-0.0001)
-
+x7 = 0:(((2/3-0.0001)-0)/199):(2/3-0.0001)  
+#x7 = linspace(0, 2/3-0.0001, 200)
 
 
 x9 <- sin(2*pi*(0:10)/5)
@@ -274,7 +274,7 @@ signal:::logseq(1, 100, n=500)
 Ma(c(1,2,1)/3)
 # medfilt1
 set.seed(1)
-medfilt1(x22 + 0.25*rlnorm(length(x4), 0.5))  #
+medfilt1(x22 + 0.25*rlnorm(length(x4), 0.5))  # first and last value?
 # MedianFilter
 MedianFilter(7)  
 # mkpp see pchip
@@ -303,7 +303,7 @@ signal:::postpad(c(1,-2), 3)
 signal:::postpad(c(1,2), 3)
 # ppval see pchip
 # remez
-remez(15, c(0, 0.3, 0.4, 1), c(1,1,0,0))        #
+remez(15, c(0, 0.3, 0.4, 1), c(1,1,0,0))        
 # resample
 resample(sin(2*pi*(0:10)/5), (0:10)[2], seq(0, 10.95, by=0.05)[2])                #
 # roots
@@ -344,7 +344,7 @@ unclass(specgram(chirp(seq(0, 5, by=1/8000), 200, 2, 500, "logarithmic"), Fs = 8
 unclass(specgram(chirp(x27, 0, 2, 500), 2^ceiling(log2(abs(ceiling(100)))), 1000, ceiling(100), ceiling(100)-ceiling(20)))
 # spencer
 set.seed(1)
-spencer(x22 + 0.25*rnorm(length(x4)))  #
+spencer(x22 + 0.25*rnorm(length(x4))) # ??
 # triang
 triang(1)   # test
 triang(2)   # test
