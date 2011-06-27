@@ -155,12 +155,13 @@ grpdelay.default <- function(filt, a = 1, n = 512, whole = FALSE, Fs = NULL, ...
   den <- fft(postpad(c, nfft))
 #  minmag <- 10*eps
 #  polebins <- which(abs(den) < minmag)
-  polebins <- which(abs(den) == 0)
-  if (any(polebins))
+  polebins <- which(abs(den) < 2 * .Machine$double.eps)
+  if(any(polebins)){
     warning('grpdelay: setting group delay to 0 at singularity')
-  num[polebins] <- 0
-  num[polebins] <- 1
-
+    num[polebins] <- 0
+    den[polebins] <- 1
+  }
+    
   gd <- Re(num / den) - oa
 
   if (!whole) {
