@@ -64,8 +64,8 @@ specgram <- function(x, n = min(256, length(x)), Fs = 2, window = hanning(n),
      overlap = ceiling(length(window)/2)){ 
   ## if only the window length is given, generate hanning window
 
-  if((!is.numeric(x)) || (!is.null(dim(x))))
-    stop("'x' has to be a numeric vector.")
+  if(!is.numeric(x))
+    stop("'x' has to be a numeric.")
       
   if (length(window) == 1)
     window <- hanning(window)

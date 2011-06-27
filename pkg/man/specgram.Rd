@@ -10,7 +10,7 @@ transform to determine the frequency components at that slice.
 }
 \usage{
 specgram(x, n = min(256, length(x)), Fs = 2, window = hanning(n),
-         overlap = length(window)/2)
+         overlap = ceiling(length(window)/2))
 
 \method{plot}{specgram}(x, col = gray(0:512 / 512), xlab="time", ylab="frequency", \ldots)
 
