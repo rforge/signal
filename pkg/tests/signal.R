@@ -295,7 +295,7 @@ signal:::postpad(c(1,2), 3)
 # remez
 remez(15, c(0, 0.3, 0.4, 1), c(1,1,0,0))        
 # resample
-resample(sin(2*pi*(0:10)/5), (0:10)[2], seq(0, 10.95, by=0.05)[2])                #
+resample(sin(2*pi*(0:10)/5), 1, 0.05)
 # roots
 roots(1:3)
 poly(roots(1:3))   
