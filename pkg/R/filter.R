@@ -49,6 +49,7 @@ filter.MedianFilter <- function(filt, x, ...) {
 }
 
 medfilt1 <- function(x, n = 3, ...) {
+  .Deprecated("runmed", package="signal", "'medfilt1' is deprecated. Use 'runmed' of the 'stats' package instead.")
   runmed(x, n, ...)
 }
 
@@ -57,9 +58,10 @@ spencerFilter <- function() {
 }
 
 spencer  <- function(x)  {
-  fftfilt(c(-3, -6, -5, 3, 21, 46, 67, 74, 67, 46, 21, 3, -5, -6, -3) / 320,
-          x)
-} 
+    retval <- fftfilt(c(-3, -6, -5, 3, 21, 46, 67, 74, 67, 46, 21, 3, -5, -6, -3) / 320, x)
+    retval <- c(rep(NA, 7), retval[-(1:14)], rep(NA, 7))
+    retval
+}
 
 FilterOfOrder <- function(n, Wc, type, ...) {
   res = list(n = n, Wc = Wc, type = type, ...)

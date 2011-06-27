@@ -4,7 +4,7 @@
 \alias{filter.MedianFilter}
 \title{ Median filter }
 \description{
-  Performs an n-point running median. For Matlab/Octave compatibility.
+  Deprecated! Performs an n-point running median. For Matlab/Octave compatibility.
 }
 \usage{
 medfilt1(x, n = 3, \dots)

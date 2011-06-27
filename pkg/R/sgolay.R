@@ -61,7 +61,7 @@ sgolay <- function(p, n, m = 0, ts = 1)  {
     ## values and future points using positive values.
     Ce <- ( ((1:n)-row) %*% matrix(1, 1, p+1) ) ^ ( matrix(1, n) %*% (0:p) )
     ## A = pseudo-inverse (C), so C*A = I; this is constructed from the SVD 
-    A <- ginv(Ce)
+    A <- ginv(Ce, tol = .Machine$double.eps)
     ## Take the row of the matrix corresponding to the derivative
     ## you want to compute.
     Fm[row,] <- A[1+m,]

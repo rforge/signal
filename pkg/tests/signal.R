@@ -3,17 +3,10 @@ x1 <- 1000/(10000/2)
 x2 <- 1200/(10000/2)
 x3 <- seq(0, 2, by=0.01)
 x4 <- seq(0, 1, len=100)
-
 x5 <- c(0, 0.3, 0.3, 0.6, 0.6, 1)
 x6 <- c(0, 0, 1, 1/2, 0, 0)
 x7 <- seq(0, 2/3-0.0001, length=200) 
-
-x5 = [0, 0.3, 0.3, 0.6, 0.6, 1]
-x6 = [0, 0, 1, 1/2, 0, 0]
-x7 = 0:(((2/3-0.0001)-0)/199):(2/3-0.0001)  
 #x7 = linspace(0, 2/3-0.0001, 200)
-
-
 x9 <- sin(2*pi*(0:10)/5)
 x10 <- seq(0,11,length=500)
 x12 <- c(0,4,5,6,8,10) 
@@ -272,9 +265,6 @@ kaiserord(100 * c(10,13,15,20,30,33,35,40), c(1,0,1,0,1), 0.05, 11025)
 signal:::logseq(1, 100, n=500)
 # Ma
 Ma(c(1,2,1)/3)
-# medfilt1
-set.seed(1)
-medfilt1(x22 + 0.25*rlnorm(length(x4), 0.5))  # first and last value?
 # MedianFilter
 MedianFilter(7)  
 # mkpp see pchip
@@ -315,8 +305,8 @@ sftrans(signal:::ncauer(3, 40, 5), 0.1, FALSE)
 sftrans(signal:::ncauer(3, 40, 5), 0.1, TRUE)         
 sftrans(bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$zero, bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$pole, 
 bilinear(Sz=signal:::ncauer(3, 40, 5), 2)$gain, 2, stop = FALSE)        
-sftrans(ellip(ellipord(x1, x2, 0.5, 29)), 0.1)            #
-sftrans(butter(4, 0.1, type="pass", plane="z"), 0.1)     #
+sftrans(ellip(ellipord(x1, x2, 0.5, 29)), 0.1)
+sftrans(butter(4, 0.1, type="pass", plane="z"), 0.1)
 # sgolay
 x24 <- t(0:(2^12-1))/(2^12)
 x25 <- x24[2]-x24[1]
@@ -328,10 +318,10 @@ x <- d*sin(x23*x24)
 dx <- dd*sin(x23*x24) + x23*d*cos(x23*x24)
 d2x <- (d2d-x23^2*d)*sin(x23*x24) + 2*x23*dd*cos(x23*x24)
 d3x <- (d3d-3*x23^2*dd)*sin(x23*x24) + (3*x23*d2d-x23^3*d)*cos(x23*x24)
-sgolayfilt(x, sgolay(8, 41, 0, x25)) # test ??
-sgolayfilt(x, sgolay(8, 41, 1, x25)) # test ??
-sgolayfilt(x, sgolay(8, 41, 2, x25)) # test ??
-sgolayfilt(x, sgolay(8, 41, 3, x25)) # test ??
+sgolayfilt(x, sgolay(8, 41, 0, x25))
+sgolayfilt(x, sgolay(8, 41, 1, x25))
+sgolayfilt(x, sgolay(8, 41, 2, x25))
+sgolayfilt(x, sgolay(8, 41, 3, x25))
 # sgolayfilt
 sgolayfilt(c(rep(0, 15), rep(10, 10), rep(0, 15)))
 sgolayfilt(cos(2*pi*seq(0, 1, by=0.01)*3), 3, 5)  # demo
@@ -344,7 +334,7 @@ unclass(specgram(chirp(seq(0, 5, by=1/8000), 200, 2, 500, "logarithmic"), Fs = 8
 unclass(specgram(chirp(x27, 0, 2, 500), 2^ceiling(log2(abs(ceiling(100)))), 1000, ceiling(100), ceiling(100)-ceiling(20)))
 # spencer
 set.seed(1)
-spencer(x22 + 0.25*rnorm(length(x4))) # ??
+spencer(x22 + 0.25*rnorm(length(x4)))
 # triang
 triang(1)   # test
 triang(2)   # test
