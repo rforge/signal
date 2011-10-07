@@ -1,10 +1,10 @@
 Package: signal
 Title: Signal processing
-Version: 0.7-0
-Date: 2011-06-27
+Version: 0.7-1
+Date: 2011-10-07
 Author: For Details on the authors of original functions (e.g. ported from Octave)
   see the code and help files. Ported to R by Tom Short <tshort@eprisolutions.com>.
-  Later modifications by Uwe Ligges, Sarah Schnackenberg, Hans-Werner Borchers, Sebastian Krey.
+  Later modifications by Uwe Ligges, Sarah Schnackenberg, Hans-Werner Borchers, Sebastian Krey, Olaf Mersmann.
 Maintainer: Uwe Ligges <ligges@statistik.tu-dortmund.de>
 Depends: R (>= 2.10.0), stats, graphics, grDevices, MASS
 Suggests: pracma
