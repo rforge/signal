@@ -183,7 +183,9 @@ postpad <- function(x, n) {
 ifft <- function(x)
   fft(x, inverse = TRUE) / length(x)
 
-sinc <- function(x) sin(pi*x)/(pi*x)
+sinc <- function(x){
+    ifelse(x==0, 1, sin(pi*x) / (pi*x))
+}
 
 logseq <- function(from, to, n = 500)
   exp(seq(log(abs(from)), log(abs(to)), length = n))

@@ -7,3 +7,4 @@
 	* Converted as.real -> as.double and friends
 	* new arguments init, init.x, and init.y in filter.default to provide initial values, 
 		contributed by Vladimir Dergachev
+	* fix for sinc() function by Christophe Rhodes
